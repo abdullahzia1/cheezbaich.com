@@ -10,21 +10,24 @@ import logo from '../assets/logo.png';
 import { resetCart } from '../slices/cartSlice';
 
 const Header = () => {
+  // Redux state and dispatch setup
   const { cartItems } = useSelector((state) => state.cart);
   const { userInfo } = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Logout API call using RTK Query
   const [logoutApiCall] = useLogoutMutation();
 
+  // Logout handler
   const logoutHandler = async () => {
     try {
+      // Perform logout API call
       await logoutApiCall().unwrap();
+      // Dispatch logout action and reset cart state
       dispatch(logout());
-      // NOTE: here we need to reset cart state for when a user logs out so the next
-      // user doesn't inherit the previous users cart and shipping
       dispatch(resetCart());
+      // Navigate to the login page
       navigate('/login');
     } catch (err) {
       console.error(err);
@@ -33,58 +36,74 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
+      {/* Bootstrap Navbar */}
+      <Navbar variant='light' expand='lg' collapseOnSelect style={{ background: '#ffffff', color: '#0000'}}>
         <Container>
-          <LinkContainer to='/'>
-            <Navbar.Brand>
-              <img src={logo} alt='CheezBaich' />
-              Cheez Baich
+          {/* Brand/logo with link to home */}
+          <LinkContainer to='/' style={{ marginRight: '30px' }}>
+            <Navbar.Brand  > 
+              <img src={logo} alt='CheezBaich' style={{ width: '60px' }}/>
+              {/* <p style={{ fontSize: "13px", fontWeight: '800'}}>CHEEZ BAICH</p>  */}
             </Navbar.Brand>
           </LinkContainer>
+          
+          {/* Navbar toggle button */}
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ms-auto'>
-              <SearchBox />
-              <LinkContainer to='/cart'>
-                <Nav.Link>
+
+          {/* Navbar content */}
+          <Navbar.Collapse id='basic-navbar-nav' className='lg-d-flex justify-content-between'>
+            {/* Search Box Component */}
+            <SearchBox />
+
+            {/* Navigation links */}
+            <Nav>
+              {/* Cart link with shopping cart icon and item count badge */}
+              <LinkContainer to='/cart' style={{ color: '#000000' }}>
+                <Nav.Link >
                   <FaShoppingCart /> Cart
                   {cartItems.length > 0 && (
-                    <Badge pill bg='success' style={{ marginLeft: '5px' }}>
+                    <Badge pill bg='success' style={{ marginLeft: '5px', color: '#000000' }}>
                       {cartItems.reduce((a, c) => a + c.qty, 0)}
                     </Badge>
                   )}
                 </Nav.Link>
               </LinkContainer>
+
+              {/* User authentication links */}
               {userInfo ? (
+                // If user is authenticated
                 <>
-                  <NavDropdown title={userInfo.name} id='username'>
-                    <LinkContainer to='/profile'>
-                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                  {/* Dropdown menu for user actions */}
+                  <NavDropdown title={userInfo.name} id='username' style={{ color: '#000000' }}>
+                    <LinkContainer to='/profile' style={{ color: '#000000' }}>
+                      <NavDropdown.Item >Profile</NavDropdown.Item>
                     </LinkContainer>
-                    <NavDropdown.Item onClick={logoutHandler}>
+                    <NavDropdown.Item onClick={logoutHandler} style={{ color: '#000000' }}>
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
                 </>
               ) : (
-                <LinkContainer to='/login'>
-                  <Nav.Link>
-                    <FaUser /> Sign In
+                // If user is not authenticated
+                <LinkContainer to='/login' style={{ color: '#000000' }}>
+                  <Nav.Link >
+                    <FaUser style={{ color: '#000000' }}/> Sign In
                   </Nav.Link>
                 </LinkContainer>
               )}
 
-              {/* Admin Links */}
+              {/* Admin links */}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title='Admin' id='adminmenu'>
-                  <LinkContainer to='/admin/productlist'>
-                    <NavDropdown.Item>Products</NavDropdown.Item>
+                // If user is an admin
+                <NavDropdown title='Admin' id='adminmenu' style={{ color: '#000000' }}> 
+                  <LinkContainer to='/admin/productlist' style={{ color: '#000000' }}>
+                    <NavDropdown.Item style={{ color: '#000000' }}>Products</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/orderlist'>
-                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                  <LinkContainer to='/admin/orderlist' style={{ color: '#000000' }}>
+                    <NavDropdown.Item style={{ color: '#000000' }}>Orders</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/userlist'>
-                    <NavDropdown.Item>Users</NavDropdown.Item>
+                  <LinkContainer to='/admin/userlist' style={{ color: '#000000' }}>
+                    <NavDropdown.Item style={{ color: '#000000' }}>Users</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
               )}

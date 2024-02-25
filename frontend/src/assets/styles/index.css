@@ -1,3 +1,10 @@
+* {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
 main {
   min-height: 80vh;
 }
@@ -51,3 +58,4 @@ table th {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
+
