@@ -1,8 +1,10 @@
-* {
+body {
   font-family: "DM Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
+  padding: 0;
+  margin: 0;
 }
 
 main {
@@ -24,7 +26,7 @@ main {
 }
 
 .product-title {
-  height: 2.5em; /* Set a fixed height */
+  height: 25px; /* Set a fixed height */
   overflow: hidden; /* Hide overflow content */
   text-overflow: ellipsis; /* Add ellipsis for long text */
   white-space: nowrap; /* Prevent wrapping */
@@ -59,3 +61,22 @@ table th {
   background: rgba(0, 0, 0, 0.5);
 }
 
+.product-link {
+  text-decoration: none;
+}
+
+
+@media (min-width: 577px) and (max-width: 992px) {
+  .newArrivalResponsive {
+    /* Adjust the font size for medium screens */
+    display: flex !important;
+    justify-content: center;
+  }
+}
+@media (max-width: 576px) {
+  .newArrivalResponsive {
+    /* Adjust the font size for small screens */
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -3,7 +3,7 @@ import React from 'react';
 const TopNavBar = () => {
   return (
     <>
-      <div className="alert alert-dismissible fade show m-0" role="alert" style={{ background: 'black', width: '100%', minHeight: "5vh" }}>
+      <div className="alert alert-dismissible fade show m-0" role="alert" style={{ background: 'black', width: '100%', minHeight: "5vh", boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px', borderRadius: 'none'  }}>
         <p className='m-0 text-center' style={{ fontWeight: '600', fontSize: '11px', color: 'white' }}>
           Sign up and get <strong>20% off</strong> to your first order. <strong>Sign Up Now</strong>
         </p>
