@@ -37,10 +37,10 @@ const Header = () => {
   return (
     <header>
       {/* Bootstrap Navbar */}
-      <Navbar variant='light' expand='lg' collapseOnSelect style={{ background: '#ffffff', color: '#0000'}}>
-        <Container>
+      <Navbar variant='light' expand='lg' collapseOnSelect style={{ background: '#ffffff', color: '#0000', width: '100%', minHeight: "5vh", margin: '0'}}>
+        <Container style={{ margin:"auto"}}>
           {/* Brand/logo with link to home */}
-          <LinkContainer to='/' style={{ marginRight: '30px' }}>
+          <LinkContainer to='/' style={{  }}>
             <Navbar.Brand  > 
               <img src={logo} alt='CheezBaich' style={{ width: '60px' }}/>
               {/* <p style={{ fontSize: "13px", fontWeight: '800'}}>CHEEZ BAICH</p>  */}
@@ -53,7 +53,7 @@ const Header = () => {
           {/* Navbar content */}
           <Navbar.Collapse id='basic-navbar-nav' className='lg-d-flex justify-content-between'>
             {/* Search Box Component */}
-            <SearchBox />
+            <SearchBox style={{  }}/>
 
             {/* Navigation links */}
             <Nav>

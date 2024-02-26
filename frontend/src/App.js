@@ -30,9 +30,9 @@ const App = () => {
       <TopNavBar/>
       <Header />
       <main className='py-3'>
-        <Container>
+        {/* <Container> */}
           <Outlet />
-        </Container>
+        {/* </Container> */}
       </main>
       <Footer />
     </>

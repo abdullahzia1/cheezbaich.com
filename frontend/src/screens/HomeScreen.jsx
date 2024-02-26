@@ -1,4 +1,4 @@
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
 import { Link } from 'react-router-dom';
@@ -34,6 +34,7 @@ const HomeScreen = () => {
         </Message>
       ) : (
         <>
+        <Container>
           <Meta />
           <h1>Latest Products</h1>
           <Row>
@@ -47,7 +48,8 @@ const HomeScreen = () => {
             pages={data.pages}
             page={data.page}
             keyword={keyword ? keyword : ''}
-          />
+            />
+            </Container>
         </>
       )}
     </>

@@ -22,8 +22,8 @@ const SearchBox = () => {
 
   return (
     <>
-      <Form onSubmit={submitHandler} className="d-flex">
-        <InputGroup className="mr-sm-2 ml-sm-5" style={{ width: "50vw", }}>
+      <Form onSubmit={submitHandler} className="d-flex mx-auto">
+        <InputGroup className="mr-sm-2 ml-sm-5" style={{ minWidth: "40vw", width: '100%'}}>
           <Form.Control
             type="text"
             name="q"
@@ -32,7 +32,7 @@ const SearchBox = () => {
             placeholder="Search Products..."
             style={{ borderRadius: "200px 0px 0px 200px", background: '#F0F0F0' }}
           />
-          <Button type="submit" variant="dark" className="p-2" style={{ borderRadius: "0px 200px 200px 0px", background: "#000000d6"}}>
+          <Button type="submit" variant="dark" className="p-2" style={{ borderRadius: "0px 200px 200px 0px", background: "000000d6"}}>
             <FaSearch />
           </Button>
         </InputGroup>
