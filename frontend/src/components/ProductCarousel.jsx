@@ -50,9 +50,9 @@ const ProductCarousel = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div class="container text-center">
-              <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 my-auto animate-from-top">
+            <div className="container text-center">
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-sm-12 my-auto animate-from-top">
                   <p
                     className="headingbanner"
                     style={{
@@ -93,7 +93,7 @@ const ProductCarousel = () => {
                   </p>
                   <ShopButton />
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
+                <div className="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
                   <img
                     src={banner1}
                     alt=""
@@ -104,9 +104,9 @@ const ProductCarousel = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div class="container text-center">
-              <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 my-auto animate-from-top">
+            <div className="container text-center">
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-sm-12 my-auto animate-from-top">
                   <p
                     className="headingbanner"
                     style={{
@@ -147,7 +147,7 @@ const ProductCarousel = () => {
                   </p>
                   <ShopButton />
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
+                <div className="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
                   <img
                     src={banner2}
                     alt=""
@@ -159,9 +159,9 @@ const ProductCarousel = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <div class="container text-center">
-              <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 my-auto animate-from-top">
+            <div className="container text-center">
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-sm-12 my-auto animate-from-top">
                   <p
                     className="headingbanner"
                     style={{
@@ -202,7 +202,7 @@ const ProductCarousel = () => {
                   </p>
                   <ShopButton/>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
+                <div className="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
                   <img
                     src={banner3}
                     alt=""
@@ -214,9 +214,9 @@ const ProductCarousel = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <div class="container text-center">
-              <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 my-auto animate-from-top">
+            <div className="container text-center">
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-sm-12 my-auto animate-from-top">
                   <p
                     className="headingbanner"
                     style={{
@@ -257,7 +257,7 @@ const ProductCarousel = () => {
                   </p>
                   <ShopButton />
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
+                <div className="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
                   <img
                     src={banner4}
                     alt=""

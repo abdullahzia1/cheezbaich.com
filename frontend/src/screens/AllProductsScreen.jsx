@@ -1,3 +1,4 @@
+import React from 'react'
 import { Row, Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
@@ -11,17 +12,21 @@ import ShopButton from "../components/ShopButton";
 import Category from "../components/Category";
 import ReviewHomepage from "../components/ReviewHomepage";
 
-const HomeScreen = () => {
-  const { pageNumber, keyword } = useParams();
 
-  const { data, isLoading, error } = useGetProductsQuery({
-    keyword,
-    pageNumber,
-  });
 
+
+const AllProductsScreen = () => {
+    const { pageNumber, keyword } = useParams();
+
+    const { data, isLoading, error } = useGetProductsQuery({
+      keyword,
+      pageNumber,
+    });
+
+    
   return (
-    <>
-      <ProductCarousel />
+
+       <>
 
       {isLoading ? (
         <Loader />
@@ -32,7 +37,6 @@ const HomeScreen = () => {
       ) : (
         <>
           <Container>
-            <Meta />
             <h1
               style={{
                 textAlign: "center",
@@ -42,10 +46,10 @@ const HomeScreen = () => {
                 margin: "60px 0px",
               }}
             >
-              New Arrivals
+              All Prducts
             </h1>
             <Row>
-              {data.products.slice(0, 4).map((product) => (
+              {data.products.map((product) => (
                 <Col
                   className="newArrivalResponsive"
                   key={product._id}
@@ -58,37 +62,12 @@ const HomeScreen = () => {
                 </Col>
               ))}
             </Row>
-            <div style={{ display: "flex", justifyContent: "center", margin: "60px 0px", }}>
-              <ShopButton />
-            </div>
 
-            <hr className="hr hr-blurry" />
-
-            <div style={{ margin: "60px 0px", }}>
-         <Category/>
-            </div>
-         <h1
-              style={{
-                textAlign: "center",
-                fontSize: "45px",
-                fontWeight: "600",
-                color: "#000000",
-                margin: "60px 0px",
-              }}
-            >
-              OUR HAPPY CUSTOMERS
-            </h1>
-            <ReviewHomepage/>
-            <Paginate
-              pages={data.pages}
-              page={data.page}
-              keyword={keyword ? keyword : ""}
-            />
           </Container>
         </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default HomeScreen;
+export default AllProductsScreen

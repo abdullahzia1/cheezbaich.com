@@ -93,15 +93,15 @@ const ProductScreen = () => {
                 lg={4}
                 md={4}
                 sm={6}
-                // style={{ border: "0.2px solid red" }}
+                
               >
-                <Image src={product.image} alt={product.name} fluid />
+                <Image src={product.image} variant='top' className='mb-3' fluid style={{ background: '#F0EEED', borderRadius: '20px', objectFit: 'cover', boxShadow:'rgba(0, 0, 0, 0.09) 0px 3px 12px' }}  />
               </Col>
               <Col
                 lg={7}
                 md={7}
                 sm={6}
-                // style={{ border: "0.2px solid blue" }}
+               
               >
                 <ListGroup variant="flush">
                   <ListGroup.Item>
@@ -205,12 +205,7 @@ const ProductScreen = () => {
                           </Form.Control>
                         </Col>
 
-                        <Col
-                          lg={7}
-                          md={8}
-                          sm={12}
-                          // style={{ border: "0.2px solid red" }}
-                        >
+                        <Col lg={7} md={8} sm={12}>
                           <Button
                             className="btn-block"
                             type="button"
@@ -239,7 +234,7 @@ const ProductScreen = () => {
               </Col>
             </Row>
 
-            <hr class="hr hr-blurry" />
+            <hr className="hr hr-blurry" />
 
             <Tabs
               defaultActiveKey="Product Details"
@@ -319,7 +314,7 @@ const ProductScreen = () => {
                     {product.reviews.map((review) => (
                       <Col className="d-flex gap-2 my-2" lg={6} md={6} sm={12}>
                         <ListGroup.Item
-                          key={review._id}
+                          key={review.id}
                           className="card"
                           style={{
                             width: "500px",
@@ -361,7 +356,7 @@ const ProductScreen = () => {
                         </ListGroup.Item>
                       </Col>
                     ))}
-                    <hr class="hr hr-blurry mt-3" />
+                    <hr className="hr hr-blurry mt-3" />
 
                     <h1
                       style={{
@@ -555,7 +550,7 @@ const ProductScreen = () => {
               </Tab>
             </Tabs>
 
-            <hr class="hr hr-blurry" />
+            <hr className="hr hr-blurry" />
 
             <h1
               style={{
@@ -572,7 +567,7 @@ const ProductScreen = () => {
               {data.products.slice(0, 4).map((product) => (
                 <Col
                   className="newArrivalResponsive"
-                  key={product._id}
+                  key={product.id}
                   sm={12}
                   md={6}
                   lg={4}
@@ -589,25 +584,25 @@ const ProductScreen = () => {
                 margin: "60px 0px",
               }}
             >
-                   <button
-        style={{
-          fontSize: "20px",
-          fontWeight: "300",
-          color: "#ffff",
-          textAlign: "center",
-          border: "1px Solid black",
-          background: "black",
-          borderRadius: "200px",
-          margin: "20px 0px",
-          padding: "10px 25px",
-          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-        }}
-      >
-        View All
-      </button>
+              <button
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "300",
+                  color: "#ffff",
+                  textAlign: "center",
+                  border: "1px Solid black",
+                  background: "black",
+                  borderRadius: "200px",
+                  margin: "20px 0px",
+                  padding: "10px 25px",
+                  boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                }}
+              >
+                View All
+              </button>
             </div>
 
-            <hr class="hr hr-blurry" />
+            <hr className="hr hr-blurry" />
           </div>
         </>
       )}
