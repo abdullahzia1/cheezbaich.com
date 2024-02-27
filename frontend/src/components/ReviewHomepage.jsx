@@ -10,6 +10,7 @@ import Rating from "./Rating";
 const ReviewHomepage = () => {
   return (
     <>
+    
 <Swiper
   style={{
     width: "100%",
@@ -281,6 +282,7 @@ const ReviewHomepage = () => {
           </div>
         </SwiperSlide>
       </Swiper>
+    
     </>
   );
 };
