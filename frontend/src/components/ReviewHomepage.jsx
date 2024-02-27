@@ -10,32 +10,33 @@ import Rating from "./Rating";
 const ReviewHomepage = () => {
   return (
     <>
-      <Swiper
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-        slidesPerView={3}
-        spaceBetween={20}
-        navigation={true} 
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 40,
-          },
-          1024: {
-            slidesPerView: 5,
-            spaceBetween: 50,
-          },
-        }}
+<Swiper
+  style={{
+    width: "100%",
+    height: "100%",
+    margin: '20px 0px'
+  }}
+  slidesPerView={3}
+  spaceBetween={20}
+  navigation={true}
+  autoplay={{
+    delay: 3000,
+    disableOnInteraction: false,
+  }}
+  breakpoints={{
+    310: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 50,
+    },
+  }}
         className="mySwiper"
         modules={[Navigation, Autoplay, Pagination]}
       >
