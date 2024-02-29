@@ -1,6 +1,8 @@
-import jwt from 'jsonwebtoken';
-import asyncHandler from './asyncHandler.js';
-import User from '../models/userModel.js';
+import jwt from "jsonwebtoken";
+import asyncHandler from "./asyncHandler.js";
+import User from "../models/userModel.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 // User must be authenticated
 const protect = asyncHandler(async (req, res, next) => {
@@ -11,19 +13,19 @@ const protect = asyncHandler(async (req, res, next) => {
 
   if (token) {
     try {
-      const decoded = jwt.verify(token, 'abc123def456');
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-      req.user = await User.findById(decoded.userId).select('-password');
+      req.user = await User.findById(decoded.userId).select("-password");
 
       next();
     } catch (error) {
       console.error(error);
       res.status(401);
-      throw new Error('Not authorized, token failed');
+      throw new Error("Not authorized, token failed");
     }
   } else {
     res.status(401);
-    throw new Error('Not authorized, no token');
+    throw new Error("Not authorized, no token");
   }
 });
 
@@ -33,7 +35,7 @@ const admin = (req, res, next) => {
     next();
   } else {
     res.status(401);
-    throw new Error('Not authorized as an admin');
+    throw new Error("Not authorized as an admin");
   }
 };
 
