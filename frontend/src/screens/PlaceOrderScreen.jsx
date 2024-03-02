@@ -189,7 +189,7 @@ const PlaceOrderScreen = () => {
                                     borderRadius: "15px",
                                     width: "100%",
                                     height: "100%",
-                                    objectFit: "fill",
+                                    objectFit: "contain",
                                     margin: "auto",
                                     boxShadow:
                                       "rgba(0, 0, 0, 0.09) 0px 3px 12px",

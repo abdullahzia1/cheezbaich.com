@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
@@ -6,21 +6,16 @@ import Product from "../components/Product";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 
-
-
 const AllProductsScreen = () => {
-    const { pageNumber, keyword } = useParams();
+  const { pageNumber, keyword } = useParams();
 
-    const { data, isLoading, error } = useGetProductsQuery({
-      keyword,
-      pageNumber,
-    });
+  const { data, isLoading, error } = useGetProductsQuery({
+    keyword,
+    pageNumber,
+  });
 
-    
   return (
-
-       <>
-
+    <>
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -55,12 +50,11 @@ const AllProductsScreen = () => {
                 </Col>
               ))}
             </Row>
-
           </Container>
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default AllProductsScreen
+export default AllProductsScreen;
