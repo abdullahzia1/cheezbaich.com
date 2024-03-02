@@ -45,7 +45,7 @@ const ProductScreen = () => {
 
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
-    navigate("/cart");
+    // navigate("/cart");
   };
 
   const {
@@ -89,20 +89,21 @@ const ProductScreen = () => {
           <div className="container">
             <Meta title={product.name} description={product.description} />
             <Row className="d-flex gap-2 mt-3">
-              <Col
-                lg={4}
-                md={4}
-                sm={6}
-                
-              >
-                <Image src={product.image} variant='top' className='mb-3' fluid style={{ background: '#F0EEED', borderRadius: '20px', objectFit: 'cover', boxShadow:'rgba(0, 0, 0, 0.09) 0px 3px 12px' }}  />
+              <Col lg={4} md={4} sm={6}>
+                <Image
+                  src={product.image}
+                  variant="top"
+                  className="mb-3"
+                  fluid
+                  style={{
+                    background: "#F0EEED",
+                    borderRadius: "20px",
+                    objectFit: "cover",
+                    boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
+                  }}
+                />
               </Col>
-              <Col
-                lg={7}
-                md={7}
-                sm={6}
-               
-              >
+              <Col lg={7} md={7} sm={6}>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
                     <h3
