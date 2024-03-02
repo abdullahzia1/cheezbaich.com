@@ -58,16 +58,22 @@ const HomeScreen = () => {
                 </Col>
               ))}
             </Row>
-            <div style={{ display: "flex", justifyContent: "center", margin: "60px 0px", }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                margin: "60px 0px",
+              }}
+            >
               <ShopButton />
             </div>
 
             <hr className="hr hr-blurry" />
 
-            <div style={{ margin: "60px 0px", }}>
-         <Category/>
+            <div style={{ margin: "60px 0px" }}>
+              <Category />
             </div>
-         <h1
+            <h1
               style={{
                 textAlign: "center",
                 fontSize: "45px",
@@ -78,7 +84,7 @@ const HomeScreen = () => {
             >
               OUR HAPPY CUSTOMERS
             </h1>
-            <ReviewHomepage/>
+            <ReviewHomepage />
             <Paginate
               pages={data.pages}
               page={data.page}
