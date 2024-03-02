@@ -117,93 +117,237 @@ const OrderScreen = () => {
             margin: "60px 0px",
           }}
         >
-          Order {order._id}
+          Order: "{order._id}""
         </h1>
         <Row>
-          <Col md={8}>
-            <ListGroup variant="flush">
-              <ListGroup.Item>
-                <h2
-                  style={{
-                    textAlign: "start",
-                    fontSize: "30px",
-                    fontWeight: "700",
-                    color: "#000000",
-                    margin: "20px 0px",
-                  }}
-                >
-                  Shipping
-                </h2>
-                <p>
-                  <strong>Name: </strong> {order.user.name}
-                </p>
-                <p>
-                  <strong>Email: </strong>{" "}
-                  <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
-                </p>
-                <p>
-                  <strong>Address:</strong>
-                  {order.shippingAddress.address}, {order.shippingAddress.city}{" "}
-                  {order.shippingAddress.postalCode},{" "}
-                  {order.shippingAddress.country}
-                </p>
-                {order.isDelivered ? (
-                  <Message variant="success">
-                    Delivered on {order.deliveredAt}
-                  </Message>
-                ) : (
-                  <Message variant="danger">Not Delivered</Message>
-                )}
-              </ListGroup.Item>
+          <Col className="my-3" lg={7} md={12} sm={12} xs={12}>
+            <Card className="container">
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <h2
+                    style={{
+                      textAlign: "start",
+                      fontSize: "30px",
+                      fontWeight: "700",
+                      color: "#000000",
+                      margin: "20px 0px",
+                    }}
+                  >
+                    Shipping
+                  </h2>
+                  <p>
+                    <strong
+                      style={{
+                        textAlign: "start",
+                        fontSize: "18px",
+                        fontWeight: "700",
+                        color: "#000000",
+                      }}
+                    >
+                      Name:{" "}
+                    </strong>{" "}
+                    {order.user.name}
+                  </p>
+                  <p>
+                    <strong
+                      style={{
+                        textAlign: "start",
+                        fontSize: "18px",
+                        fontWeight: "700",
+                        color: "#000000",
+                      }}
+                    >
+                      Email:{" "}
+                    </strong>{" "}
+                    <a href={`mailto:${order.user.email}`}>
+                      {order.user.email}
+                    </a>
+                  </p>
+                  <p>
+                    <strong
+                      style={{
+                        textAlign: "start",
+                        fontSize: "18px",
+                        fontWeight: "700",
+                        color: "#000000",
+                      }}
+                    >
+                      Address:
+                    </strong>
+                    {order.shippingAddress.address},{" "}
+                    {order.shippingAddress.city}{" "}
+                    {order.shippingAddress.postalCode},{" "}
+                    {order.shippingAddress.country}
+                  </p>
+                  {order.isDelivered ? (
+                    <Message variant="success">
+                      Delivered on {order.deliveredAt}
+                    </Message>
+                  ) : (
+                    <Message variant="danger">Not Delivered Yet</Message>
+                  )}
+                </ListGroup.Item>
 
-              <ListGroup.Item>
-                <h2>Payment Method</h2>
-                <p>
-                  <strong>Method: </strong>
-                  {order.paymentMethod}
-                </p>
-                {order.isPaid ? (
-                  <Message variant="success">Paid on {order.paidAt}</Message>
-                ) : (
-                  <Message variant="danger">Not Paid</Message>
-                )}
-              </ListGroup.Item>
+                <ListGroup.Item>
+                  <h2
+                    style={{
+                      textAlign: "start",
+                      fontSize: "30px",
+                      fontWeight: "700",
+                      color: "#000000",
+                      margin: "20px 0px",
+                    }}
+                  >
+                    Payment Method
+                  </h2>
+                  <p>
+                    <strong
+                      style={{
+                        textAlign: "start",
+                        fontSize: "20px",
+                        fontWeight: "500",
+                        color: "#000000",
+                      }}
+                    >
+                      Method:{" "}
+                    </strong>
+                    {order.paymentMethod}
+                  </p>
+                  {order.isPaid ? (
+                    <Message variant="success">Paid on {order.paidAt}</Message>
+                  ) : (
+                    <Message variant="danger">Not Paid Yet</Message>
+                  )}
+                </ListGroup.Item>
 
-              <ListGroup.Item>
-                <h2>Order Items</h2>
-                {order.orderItems.length === 0 ? (
-                  <Message>Order is empty</Message>
-                ) : (
-                  <ListGroup variant="flush">
-                    {order.orderItems.map((item, index) => (
-                      <ListGroup.Item key={index}>
-                        <Row>
-                          <Col md={1}>
-                            <Image
-                              src={item.image}
-                              alt={item.name}
-                              fluid
-                              rounded
-                            />
-                          </Col>
-                          <Col>
-                            <Link to={`/product/${item.product}`}>
-                              {item.name}
-                            </Link>
-                          </Col>
-                          <Col md={4}>
-                            {item.qty} x ${item.price} = $
-                            {item.qty * item.price}
-                          </Col>
-                        </Row>
-                      </ListGroup.Item>
-                    ))}
-                  </ListGroup>
-                )}
-              </ListGroup.Item>
-            </ListGroup>
+                <ListGroup.Item>
+                  <h2
+                    style={{
+                      textAlign: "start",
+                      fontSize: "30px",
+                      fontWeight: "700",
+                      color: "#000000",
+                      margin: "20px 0px",
+                    }}
+                  >
+                    Order Items
+                  </h2>
+                  {order.orderItems.length === 0 ? (
+                    <Message>
+                      <h1
+                        style={{
+                          textAlign: "start",
+                          fontSize: "45px",
+                          fontWeight: "600",
+                          color: "#000000",
+                          margin: "60px 0px",
+                          textAlign: "center",
+                        }}
+                      >
+                        Your cart is empty
+                      </h1>
+                      <Link
+                        to="/"
+                        style={{
+                          textDecoration: "none",
+                          fontSize: "35px",
+                          fontWeight: "600",
+                          color: "#000000",
+                          margin: "60px 0px",
+                          textAlign: "center",
+                        }}
+                      >
+                        <Button
+                          style={{
+                            fontSize: "18px",
+                            fontWeight: "300",
+                            color: "#ffff",
+                            textAlign: "center",
+                            border: "1px Solid black",
+                            background: "black",
+                            borderRadius: "200px",
+                            padding: "10px 25px",
+                            boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                            width: "70%",
+                            margin: "60px auto",
+                            display: "flex",
+                            justifyContent: "center",
+                          }}
+                        >
+                          Go Home Page
+                        </Button>
+                      </Link>
+                    </Message>
+                  ) : (
+                    <ListGroup variant="flush">
+                      {order.orderItems.map((item, index) => (
+                        <ListGroup.Item key={index}>
+                          <Row style={{ minHeight: "180px", padding: "0px" }}>
+                            <Col lg={4} md={6} sm={6} xs={7}>
+                              <Link to={`/product/${item._id}`}>
+                                <Card.Img
+                                  src={item.image}
+                                  alt={item.name}
+                                  variant="top"
+                                  style={{
+                                    background: "#F0EEED",
+                                    borderRadius: "15px",
+                                    width: "100%",
+                                    height: "100%",
+                                    objectFit: "fill",
+                                    margin: "auto",
+                                    boxShadow:
+                                      "rgba(0, 0, 0, 0.09) 0px 3px 12px",
+                                  }}
+                                />
+                              </Link>
+                            </Col>
+                            <Col lg={8} md={6} sm={6} xs={4}>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  justifyContent: "space-around",
+                                  alignItems: "start",
+                                  height: "100%",
+                                }}
+                              >
+                                <Link
+                                  to={`/product/${item.product}`}
+                                  style={{ textDecoration: "none" }}
+                                >
+                                  <h3
+                                    style={{
+                                      fontSize: "20px",
+                                      fontWeight: "600",
+                                      color: "#000000",
+                                    }}
+                                  >
+                                    {item.name}
+                                  </h3>
+                                </Link>
+                                <h3
+                                  style={{
+                                    fontSize: "20px",
+                                    fontWeight: "500",
+                                    color: "rgb(0 0 0 / 60%)",
+                                  }}
+                                >
+                                  {item.qty} x ${item.price} = $
+                                  {(item.qty * (item.price * 100)) / 100}
+                                </h3>
+                              </div>
+                            </Col>
+                          </Row>
+                        </ListGroup.Item>
+                      ))}
+                    </ListGroup>
+                  )}
+                </ListGroup.Item>
+              </ListGroup>
+            </Card>
           </Col>
-          <Col md={4}>
+          <Col className="my-3" lg={5} md={12} sm={12} xs={12}>
             <Card className="container">
               <ListGroup variant="flush">
                 <ListGroup.Item>
@@ -246,7 +390,6 @@ const OrderScreen = () => {
                       ${order.itemsPrice}
                     </h3>
                   </div>
-                  
 
                   <div
                     style={{
@@ -305,13 +448,15 @@ const OrderScreen = () => {
                   </div>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <div  style={{
+                  <div
+                    style={{
                       display: "flex",
                       justifyContent: "space-between",
                       alignContent: "center",
                       margin: "10px 0px",
-                    }}>
-                      <h3
+                    }}
+                  >
+                    <h3
                       style={{
                         fontSize: "20px",
                         fontWeight: "700",
@@ -344,7 +489,6 @@ const OrderScreen = () => {
                             createOrder={createOrder}
                             onApprove={onApprove}
                             onError={onError}
-                            
                           ></PayPalButtons>
                         </div>
                       </div>
