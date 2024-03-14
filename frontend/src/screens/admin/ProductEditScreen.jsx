@@ -13,7 +13,6 @@ import {
 import JoditEditor from "jodit-react";
 
 const ProductEditScreen = () => {
-
   // Get productId from route parameters
   const { id: productId } = useParams();
 
@@ -95,7 +94,6 @@ const ProductEditScreen = () => {
   };
   const editor = useRef(null);
 
-
   return (
     <>
       {/* Navigation link */}
@@ -115,84 +113,83 @@ const ProductEditScreen = () => {
         ) : (
           <Form onSubmit={submitHandler}>
             {/* Form fields */}
-          
-              {/* Name */}
-              <Form.Group controlId="name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="name"
-                  placeholder="Enter name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </Form.Group>
-              {/* Price */}
-              <Form.Group controlId="price">
-                <Form.Label>Price</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Enter price"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                />
-              </Form.Group>
-              {/* Image */}
-              <Form.Group controlId="image">
-                <Form.Label>Image</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter image url"
-                  value={image}
-                  onChange={(e) => setImage(e.target.value)}
-                />
-                <Form.Control
-                  label="Choose File"
-                  onChange={uploadFileHandler}
-                  type="file"
-                />
-                {loadingUpload && <Loader />}
-              </Form.Group>
-              {/* Brand */}
-              <Form.Group controlId="brand">
-                <Form.Label>Brand</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter brand"
-                  value={brand}
-                  onChange={(e) => setBrand(e.target.value)}
-                />
-              </Form.Group>
-              {/* Count In Stock */}
-              <Form.Group controlId="countInStock">
-                <Form.Label>Count In Stock</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Enter countInStock"
-                  value={countInStock}
-                  onChange={(e) => setCountInStock(e.target.value)}
-                />
-              </Form.Group>
-              {/* Category */}
-              <Form.Group controlId="category">
-                <Form.Label>Category</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter category"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                />
-              </Form.Group>
-              {/* Mini Description */}
-              <Form.Group controlId="miniDescription">
-                <Form.Label>Mini Description</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  placeholder="Enter Mini description"
-                  value={miniDescription}
-                  onChange={(e) => setMiniDescription(e.target.value)}
-                />
-              </Form.Group>
-          
+
+            {/* Name */}
+            <Form.Group controlId="name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="name"
+                placeholder="Enter name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Form.Group>
+            {/* Price */}
+            <Form.Group controlId="price">
+              <Form.Label>Price</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Enter price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </Form.Group>
+            {/* Image */}
+            <Form.Group controlId="image">
+              <Form.Label>Image</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter image url"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+              />
+              <Form.Control
+                label="Choose File"
+                onChange={uploadFileHandler}
+                type="file"
+              />
+              {loadingUpload && <Loader />}
+            </Form.Group>
+            {/* Brand */}
+            <Form.Group controlId="brand">
+              <Form.Label>Brand</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter brand"
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
+              />
+            </Form.Group>
+            {/* Count In Stock */}
+            <Form.Group controlId="countInStock">
+              <Form.Label>Count In Stock</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Enter countInStock"
+                value={countInStock}
+                onChange={(e) => setCountInStock(e.target.value)}
+              />
+            </Form.Group>
+            {/* Category */}
+            <Form.Group controlId="category">
+              <Form.Label>Category</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              />
+            </Form.Group>
+            {/* Mini Description */}
+            <Form.Group controlId="miniDescription">
+              <Form.Label>Mini Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                placeholder="Enter Mini description here"
+                value={miniDescription}
+                onChange={(e) => setMiniDescription(e.target.value)}
+              />
+            </Form.Group>
 
             {/* Description */}
             <Form.Group controlId="description">
@@ -204,7 +201,7 @@ const ProductEditScreen = () => {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </Form.Group>
-{/* 
+            {/* 
             <JoditEditor
               ref={editor}
               tabIndex={1}
