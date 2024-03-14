@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 const notFound = (req, res, next) => {
   const error = new Error(`Not Found - ${req.originalUrl}`);
   res.status(404);
@@ -13,7 +16,7 @@ const errorHandler = (err, req, res, next) => {
 
   res.status(statusCode).json({
     message: message,
-    stack: process.env.NODE_ENV === 'production' ? null : err.stack,
+    stack: process.env.NODE_ENV === "production" ? null : err.stack,
   });
 };
 

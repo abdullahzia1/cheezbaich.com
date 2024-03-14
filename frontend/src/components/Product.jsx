@@ -1,31 +1,62 @@
-import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Rating from './Rating';
+import { Card, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Rating from "./Rating";
 
 const Product = ({ product }) => {
   return (
-    <Card className='my-3 p-3 rounded'>
-      <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} variant='top' />
-      </Link>
-
-      <Card.Body>
+    <>
+      <div className="my-3  p-1" key={product._id}>
         <Link to={`/product/${product._id}`}>
-          <Card.Title as='div' className='product-title'>
-            <strong>{product.name}</strong>
-          </Card.Title>
-        </Link>
-
-        <Card.Text as='div'>
-          <Rating
-            value={product.rating}
-            text={`${product.numReviews} reviews`}
+          <Card.Img
+            src={product.image}
+            variant="top"
+            className="mb-3"
+            style={{
+              background: "#F0EEED",
+              borderRadius: "20px",
+              maxWidth: "290px",
+              MaxHeight: "290px",
+              objectFit: "cover",
+              boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
+            }}
           />
-        </Card.Text>
+        </Link>
+        <Card.Body>
+          <Link
+            to={`/product/${product._id}`}
+            style={{ textDecoration: "none", color: "#000000", margin: "0" }}
+          >
+            <Card.Title
+              as="div"
+              className="product-title"
+              style={{ fontSize: "18px", fontWeight: "600" }}
+            >
+              <strong style={{}}>{product.name}</strong>
+            </Card.Title>
+          </Link>
 
-        <Card.Text as='h3'>${product.price}</Card.Text>
-      </Card.Body>
-    </Card>
+          <Card.Text as="div" style={{ fontSize: "16px" }}>
+            <Rating
+              value={product.rating}
+              text={`${product.numReviews} reviews`}
+            />
+          </Card.Text>
+
+          <Card.Text
+            as="h3"
+            style={{
+              textDecoration: "none",
+              color: "#000000",
+              margin: "0",
+              fontSize: "24px",
+              fontWeight: "800",
+            }}
+          >
+            ${product.price}
+          </Card.Text>
+        </Card.Body>
+      </div>
+    </>
   );
 };
 

@@ -1,27 +1,31 @@
-import { useState, useEffect } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
-import Message from '../../components/Message';
-import Loader from '../../components/Loader';
-import FormContainer from '../../components/FormContainer';
-import { toast } from 'react-toastify';
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
+import Message from "../../components/Message";
+import Loader from "../../components/Loader";
+import FormContainer from "../../components/FormContainer";
+import { toast } from "react-toastify";
 import {
   useGetProductDetailsQuery,
   useUpdateProductMutation,
   useUploadProductImageMutation,
-} from '../../slices/productsApiSlice';
+} from "../../slices/productsApiSlice";
 
 const ProductEditScreen = () => {
+  // Get productId from route parameters
   const { id: productId } = useParams();
 
-  const [name, setName] = useState('');
+  // States for managing product details
+  const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
-  const [image, setImage] = useState('');
-  const [brand, setBrand] = useState('');
-  const [category, setCategory] = useState('');
+  const [image, setImage] = useState("");
+  const [brand, setBrand] = useState("");
+  const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState("");
+  const [miniDescription, setMiniDescription] = useState(""); // Renamed minidescription to miniDescription for consistency
 
+  // Fetch product details using productId
   const {
     data: product,
     isLoading,
@@ -29,14 +33,16 @@ const ProductEditScreen = () => {
     error,
   } = useGetProductDetailsQuery(productId);
 
+  // Mutation hooks for updating product and uploading product image
   const [updateProduct, { isLoading: loadingUpdate }] =
     useUpdateProductMutation();
-
   const [uploadProductImage, { isLoading: loadingUpload }] =
     useUploadProductImageMutation();
 
+  // Navigation hook for redirecting after updating product
   const navigate = useNavigate();
 
+  // Submit handler for updating product
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -48,16 +54,18 @@ const ProductEditScreen = () => {
         brand,
         category,
         description,
+        miniDescription,
         countInStock,
-      }).unwrap(); // NOTE: here we need to unwrap the Promise to catch any rejection in our catch block
-      toast.success('Product updated');
+      }).unwrap(); // Unwrap the Promise to catch any rejection in the catch block
+      toast.success("Product updated");
       refetch();
-      navigate('/admin/productlist');
+      navigate("/admin/productlist");
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
   };
 
+  // Effect hook to update state with product details once fetched
   useEffect(() => {
     if (product) {
       setName(product.name);
@@ -67,12 +75,14 @@ const ProductEditScreen = () => {
       setCategory(product.category);
       setCountInStock(product.countInStock);
       setDescription(product.description);
+      setMiniDescription(product.miniDescription); // Corrected the state setter function name
     }
   }, [product]);
 
+  // Handler for uploading product image
   const uploadFileHandler = async (e) => {
     const formData = new FormData();
-    formData.append('image', e.target.files[0]);
+    formData.append("image", e.target.files[0]);
     try {
       const res = await uploadProductImage(formData).unwrap();
       toast.success(res.message);
@@ -84,98 +94,126 @@ const ProductEditScreen = () => {
 
   return (
     <>
-      <Link to='/admin/productlist' className='btn btn-light my-3'>
-        Go Back
+      {/* Navigation link */}
+      <Link to="/admin/productlist" className="btn btn-light my-3">
+        Go back
       </Link>
+      {/* Product edit form */}
       <FormContainer>
         <h1>Edit Product</h1>
+        {/* Loader for update process */}
         {loadingUpdate && <Loader />}
+        {/* Loader for fetching product details */}
         {isLoading ? (
           <Loader />
         ) : error ? (
-          <Message variant='danger'>{error.data.message}</Message>
+          <Message variant="danger">{error.data.message}</Message>
         ) : (
           <Form onSubmit={submitHandler}>
-            <Form.Group controlId='name'>
+            {/* Form fields */}
+            {/* Name */}
+            <Form.Group controlId="name">
               <Form.Label>Name</Form.Label>
               <Form.Control
-                type='name'
-                placeholder='Enter name'
+                type="name"
+                placeholder="Enter name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
-
-            <Form.Group controlId='price'>
+            {/* Price */}
+            <Form.Group controlId="price">
               <Form.Label>Price</Form.Label>
               <Form.Control
-                type='number'
-                placeholder='Enter price'
+                type="number"
+                placeholder="Enter price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
-
-            <Form.Group controlId='image'>
+            {/* Image */}
+            <Form.Group controlId="image">
               <Form.Label>Image</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter image url'
+                type="text"
+                placeholder="Enter image url"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-              ></Form.Control>
+              />
               <Form.Control
-                label='Choose File'
+                label="Choose File"
                 onChange={uploadFileHandler}
-                type='file'
-              ></Form.Control>
+                type="file"
+              />
               {loadingUpload && <Loader />}
             </Form.Group>
-
-            <Form.Group controlId='brand'>
+            {/* Brand */}
+            <Form.Group controlId="brand">
               <Form.Label>Brand</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter brand'
+                type="text"
+                placeholder="Enter brand"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
-
-            <Form.Group controlId='countInStock'>
+            {/* Count In Stock */}
+            <Form.Group controlId="countInStock">
               <Form.Label>Count In Stock</Form.Label>
               <Form.Control
-                type='number'
-                placeholder='Enter countInStock'
+                type="number"
+                placeholder="Enter countInStock"
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
-
-            <Form.Group controlId='category'>
+            {/* Category */}
+            <Form.Group controlId="category">
               <Form.Label>Category</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter category'
+                type="text"
+                placeholder="Enter category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              ></Form.Control>
+              />
+            </Form.Group>
+            {/* Mini Description */}
+            <Form.Group controlId="miniDescription">
+              <Form.Label>Mini Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                placeholder="Enter Mini description here"
+                value={miniDescription}
+                onChange={(e) => setMiniDescription(e.target.value)}
+              />
             </Form.Group>
 
-            <Form.Group controlId='description'>
+            {/* Description */}
+            <Form.Group controlId="description">
               <Form.Label>Description</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Enter description'
+                as="textarea"
+                placeholder="Enter Full description here"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
 
+            {/* Update button */}
             <Button
-              type='submit'
-              variant='primary'
-              style={{ marginTop: '1rem' }}
+              type="submit"
+              style={{
+                fontSize: "20px",
+                fontWeight: "300",
+                color: "#ffff",
+                textAlign: "center",
+                border: "1px Solid black",
+                background: "black",
+                borderRadius: "200px",
+                margin: "20px 0px",
+                padding: "10px 25px",
+                boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+              }}
             >
               Update
             </Button>
