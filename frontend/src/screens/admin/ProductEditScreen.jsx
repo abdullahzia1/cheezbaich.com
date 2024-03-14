@@ -183,7 +183,7 @@ const ProductEditScreen = () => {
               <Form.Label>Mini Description</Form.Label>
               <Form.Control
                 as="textarea"
-                placeholder="Enter Mini description"
+                placeholder="Enter Mini description here"
                 value={miniDescription}
                 onChange={(e) => setMiniDescription(e.target.value)}
               />
@@ -194,7 +194,7 @@ const ProductEditScreen = () => {
               <Form.Label>Description</Form.Label>
               <Form.Control
                 as="textarea"
-                placeholder="Enter description"
+                placeholder="Enter Full description here"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />

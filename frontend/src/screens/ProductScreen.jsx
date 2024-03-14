@@ -86,8 +86,12 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
-          <div className="container" >
-            <Meta title={product.name} description={product.description} key={productId} />
+          <div className="container">
+            <Meta
+              title={product.name}
+              description={product.description}
+              key={productId}
+            />
             <Row className="d-flex gap-2 mt-3">
               <Col lg={4} md={4} sm={6}>
                 <Image
@@ -130,20 +134,15 @@ const ProductScreen = () => {
                     >
                       ${product.price}
                     </p>
-                    TODO// Make Mini Description <hr />
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Totam quia recusandae accusantium, excepturi provident a,
-                    beatae quae similique commodi, repellat laborum sapiente
-                    debitis. Rerum quae soluta ab sit explicabo minima!
-                    {/* <p
+                    <p
                       style={{
                         fontSize: "20px",
                         fontWeight: "300",
                         color: "rgb(0 0 0 / 62%)",
                       }}
                     >
-                      {product.description}
-                    </p> */}
+                      {product.miniDescription}
+                    </p>
                   </ListGroup.Item>
                   <ListGroup.Item
                     style={{ display: "flex", justifyContent: "flex-start" }}
