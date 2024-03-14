@@ -29,9 +29,9 @@ const CartScreen = () => {
   };
 
   const checkoutHandler = () => {
-    navigate("/login?redirect=/shipping");
+    navigate("/shipping");
+    // navigate("/login?redirect=/shipping");
   };
-  
 
   return (
     <>
@@ -48,57 +48,60 @@ const CartScreen = () => {
           >
             Your Cart
           </h1>
-          <Col className="my-3" lg={7} md={7} sm={12} >
+          <Col className="my-3" lg={7} md={7} sm={12}>
             <Card>
               {cartItems.length === 0 ? (
                 <div>
-<h1
-            style={{
-              textAlign: "start",
-              fontSize: "45px",
-              fontWeight: "600",
-              color: "#000000",
-              margin: "60px 0px",
-              textAlign:'center'
-              
-              
-            }}
-          >
-             Your cart is empty
-          </h1>
-             <Link to="/"  style={{ textDecoration: 'none',  fontSize: "35px",
-              fontWeight: "600",
-              color: "#000000",
-              margin: "60px 0px",
-              textAlign:'center'}}>
-                <Button
-                 style={{
-                  fontSize: "18px",
-                  fontWeight: "300",
-                  color: "#ffff",
-                  textAlign: "center",
-                  border: "1px Solid black",
-                  background: "black",
-                  borderRadius: "200px",
-                  padding: "10px 25px",
-                  boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                  width: "70%",
-                  margin: '60px auto',
-                  display: 'flex',
-                  justifyContent:'center',
-                }}>
-                  Go Home Page
-                </Button>
-                </Link>
-             
-                  
+                  <h1
+                    style={{
+                      textAlign: "start",
+                      fontSize: "45px",
+                      fontWeight: "600",
+                      color: "#000000",
+                      margin: "60px 0px",
+                      textAlign: "center",
+                    }}
+                  >
+                    Your cart is empty
+                  </h1>
+                  <Link
+                    to="/"
+                    style={{
+                      textDecoration: "none",
+                      fontSize: "35px",
+                      fontWeight: "600",
+                      color: "#000000",
+                      margin: "60px 0px",
+                      textAlign: "center",
+                    }}
+                  >
+                    <Button
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "300",
+                        color: "#ffff",
+                        textAlign: "center",
+                        border: "1px Solid black",
+                        background: "black",
+                        borderRadius: "200px",
+                        padding: "10px 25px",
+                        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                        width: "70%",
+                        margin: "60px auto",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    >
+                      Go Home Page
+                    </Button>
+                  </Link>
                 </div>
               ) : (
                 <ListGroup variant="flush">
                   {cartItems.map((item) => (
                     <ListGroup.Item key={item._id}>
-                      <Row style={{ minHeight:'180px', padding: '0px'}}>
-                        <Col lg={4} md={6} sm={5} xs={6} style={{ }}>
+                      <Row style={{ minHeight: "180px", padding: "0px" }}>
+                        <Col lg={4} md={6} sm={5} xs={6} style={{}}>
                           <Link to={`/product/${item._id}`}>
                             <Card.Img
                               src={item.image}
@@ -110,17 +113,25 @@ const CartScreen = () => {
                                 width: "100%",
                                 height: "100%",
                                 objectFit: "fill",
-                                margin: 'auto',
+                                margin: "auto",
                                 boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
                               }}
                             />
                           </Link>
                         </Col>
-                        <Col lg={8} md={6} sm={7} xs={6} style={{  display: "flex",
-                              flexDirection: "row",
-                              justifyContent: "space-between",
-                              alignContent: "center",}}>
-                        <div
+                        <Col
+                          lg={8}
+                          md={6}
+                          sm={7}
+                          xs={6}
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: "space-between",
+                            alignContent: "center",
+                          }}
+                        >
+                          <div
                             style={{
                               display: "flex",
                               flexDirection: "column",

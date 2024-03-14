@@ -1,33 +1,21 @@
-import React from 'react'
+import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import Product from "../components/Product";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import Paginate from "../components/Paginate";
-import ProductCarousel from "../components/ProductCarousel";
-import Meta from "../components/Meta";
-import ShopButton from "../components/ShopButton";
-import Category from "../components/Category";
-import ReviewHomepage from "../components/ReviewHomepage";
-
-
-
 
 const AllProductsScreen = () => {
-    const { pageNumber, keyword } = useParams();
+  const { pageNumber, keyword } = useParams();
 
-    const { data, isLoading, error } = useGetProductsQuery({
-      keyword,
-      pageNumber,
-    });
+  const { data, isLoading, error } = useGetProductsQuery({
+    keyword,
+    pageNumber,
+  });
 
-    
   return (
-
-       <>
-
+    <>
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -50,6 +38,7 @@ const AllProductsScreen = () => {
             </h1>
             <Row>
               {data.products.map((product) => (
+                console.log(product),
                 <Col
                   className="newArrivalResponsive"
                   key={product._id}
@@ -62,12 +51,11 @@ const AllProductsScreen = () => {
                 </Col>
               ))}
             </Row>
-
           </Container>
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default AllProductsScreen
+export default AllProductsScreen;
