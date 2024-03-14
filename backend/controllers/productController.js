@@ -59,6 +59,7 @@ const createProduct = asyncHandler(async (req, res) => {
     countInStock: 0,
     numReviews: 0,
     description: "Sample description",
+    miniDescription: "mini description",
   });
 
   const createdProduct = await product.save();
@@ -69,8 +70,16 @@ const createProduct = asyncHandler(async (req, res) => {
 // @route   PUT /api/products/:id
 // @access  Private/Admin
 const updateProduct = asyncHandler(async (req, res) => {
-  const { name, price, description, image, brand, category, countInStock } =
-    req.body;
+  const {
+    name,
+    price,
+    description,
+    image,
+    brand,
+    category,
+    countInStock,
+    miniDescription,
+  } = req.body;
 
   const product = await Product.findById(req.params.id);
 
@@ -78,6 +87,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.name = name;
     product.price = price;
     product.description = description;
+    product.miniDescription = miniDescription;
     product.image = image;
     product.brand = brand;
     product.category = category;
