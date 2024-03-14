@@ -201,7 +201,7 @@ const ProductEditScreen = () => {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </Form.Group>
-            {/* 
+            
             <JoditEditor
               ref={editor}
               tabIndex={1}
@@ -209,7 +209,8 @@ const ProductEditScreen = () => {
               // onChange={(e) => setDescription(e.target.value)}
               onChange={(newContent) => setDescription(newContent)}
               placeHolder="HELLO"
-            /> */}
+            />
+            
             {/* Update button */}
             <Button
               type="submit"

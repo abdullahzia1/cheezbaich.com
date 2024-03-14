@@ -1,27 +1,30 @@
-import Message from "./Message";
-import { useGetTopProductsQuery } from "../slices/productsApiSlice";
-import banner1 from "../assets/images/banner1.png";
+// Import necessary dependencies
+import Message from "./Message"; // Component for displaying error messages
+import { useGetTopProductsQuery } from "../slices/productsApiSlice"; // Custom hook for fetching top products
+import banner1 from "../assets/images/banner1.png"; // Import product banner images
 import banner2 from "../assets/images/banner2.png";
 import banner3 from "../assets/images/banner3.png";
 import banner4 from "../assets/images/banner4.png";
+import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper components
+import "swiper/css"; // Import Swiper CSS
+import "swiper/css/pagination"; // Import Swiper pagination CSS
+import "../assets/styles/swiper.css"; // Import custom Swiper styles
+import { Autoplay, Navigation, Pagination } from "swiper/modules"; // Import Swiper modules for autoplay, navigation, and pagination
+import ShopButton from "./ShopButton"; // Import button component for shopping
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-
-import "../assets/styles/swiper.css";
-
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import ShopButton from "./ShopButton";
-
+// Define ProductCarousel component
 const ProductCarousel = () => {
+  // Fetch top products using custom hook
   const { data: products, isLoading, error } = useGetTopProductsQuery();
 
+  // Render loading spinner, error message, or carousel
   return isLoading ? null : error ? (
     <Message variant="danger">{error?.data?.message || error.error}</Message>
   ) : (
     <>
+      {/* Render Swiper carousel */}
       <div style={{ height: "84vh", backgroundColor: "#F2F0F1" }}>
+        {/* Initialize Swiper component with specified configurations */}
         <Swiper
           style={{ width: "100%", height: "100%" }}
           slidesPerView={"auto"}
@@ -49,10 +52,14 @@ const ProductCarousel = () => {
           modules={[Pagination, Navigation, Autoplay]}
           className="mySwiper"
         >
+          {/* Render individual slides for each product */}
           <SwiperSlide>
+            {/* Content of the first slide */}
             <div className="container text-center">
               <div className="row">
+                {/* Product information */}
                 <div className="col-lg-6 col-md-12 col-sm-12 my-auto animate-from-top">
+                  {/* Product heading */}
                   <p
                     className="headingbanner"
                     style={{
@@ -63,8 +70,9 @@ const ProductCarousel = () => {
                       textAlign: "start",
                     }}
                   >
-                    Console Collection
+                    Laptop Collection
                   </p>
+                  {/* Additional product details */}
                   <p
                     className="secondbanner"
                     style={{
@@ -78,8 +86,9 @@ const ProductCarousel = () => {
                       padding: "0px 10px",
                     }}
                   >
-                    New Gadget Collection
+                    New PC Collection
                   </p>
+                  {/* Description */}
                   <p
                     className="thirdbanner"
                     style={{
@@ -91,8 +100,10 @@ const ProductCarousel = () => {
                   >
                     An exciting place for the whole family! to shop.
                   </p>
+                  {/* Button for shopping */}
                   <ShopButton />
                 </div>
+                {/* Product banner image */}
                 <div className="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
                   <img
                     src={banner1}
@@ -103,6 +114,7 @@ const ProductCarousel = () => {
               </div>
             </div>
           </SwiperSlide>
+
           <SwiperSlide>
             <div className="container text-center">
               <div className="row">
@@ -117,7 +129,7 @@ const ProductCarousel = () => {
                       textAlign: "start",
                     }}
                   >
-                    Flash Sale
+                    New collection
                   </p>
                   <p
                     className="secondbanner"
@@ -132,7 +144,7 @@ const ProductCarousel = () => {
                       padding: "0px 10px",
                     }}
                   >
-                    New Smart Phone collection
+                    New Headphone collection
                   </p>
                   <p
                     className="thirdbanner"
@@ -172,7 +184,7 @@ const ProductCarousel = () => {
                       textAlign: "start",
                     }}
                   >
-                    New collection
+                    Flash Sale
                   </p>
                   <p
                     className="secondbanner"
@@ -200,7 +212,7 @@ const ProductCarousel = () => {
                   >
                     An exciting place for the whole family! to shop.
                   </p>
-                  <ShopButton/>
+                  <ShopButton />
                 </div>
                 <div className="col-lg-6 col-md-12 col-sm-12  animate-from-bottom">
                   <img

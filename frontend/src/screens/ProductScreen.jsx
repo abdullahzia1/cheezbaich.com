@@ -25,7 +25,7 @@ import Meta from "../components/Meta";
 import { addToCart } from "../slices/cartSlice";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import Product from "../components/Product";
-import ShopButton from "../components/ShopButton";
+import HTMLReactParser from "html-react-parser";
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -281,7 +281,8 @@ const ProductScreen = () => {
                       color: "rgb(0 0 0 / 62%)",
                     }}
                   >
-                    {product.description}
+                    
+                    {HTMLReactParser(product.description)}
                   </p>
                 </div>
               </Tab>
