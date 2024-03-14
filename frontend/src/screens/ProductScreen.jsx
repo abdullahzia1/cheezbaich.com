@@ -86,8 +86,8 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
-          <div className="container">
-            <Meta title={product.name} description={product.description} />
+          <div className="container" >
+            <Meta title={product.name} description={product.description} key={productId} />
             <Row className="d-flex gap-2 mt-3">
               <Col lg={4} md={4} sm={6}>
                 <Image

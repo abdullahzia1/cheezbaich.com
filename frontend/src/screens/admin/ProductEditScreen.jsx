@@ -21,6 +21,7 @@ const ProductEditScreen = () => {
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
+  const [minidescription, setMiniDescription] = useState("");
 
   const {
     data: product,
@@ -48,6 +49,7 @@ const ProductEditScreen = () => {
         brand,
         category,
         description,
+        minidescription,
         countInStock,
       }).unwrap(); // NOTE: here we need to unwrap the Promise to catch any rejection in our catch block
       toast.success("Product updated");
@@ -67,6 +69,7 @@ const ProductEditScreen = () => {
       setCategory(product.category);
       setCountInStock(product.countInStock);
       setDescription(product.description);
+      setMiniDescription(product.minidescription)
     }
   }, [product]);
 
@@ -165,6 +168,7 @@ const ProductEditScreen = () => {
                 label="Choose File"
                 onChange={uploadFileHandler}
                 type="file"
+                id="formFileMultiple"
               ></Form.Control>
               {loadingUpload && <Loader />}
             </Form.Group>
@@ -233,6 +237,25 @@ const ProductEditScreen = () => {
                 placeholder="Enter description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId="description">
+              <Form.Label
+                style={{
+                  textAlign: "start",
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  color: "#000000",
+                }}
+              >
+                MINI Description
+              </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Mini description"
+                value={minidescription}
+                onChange={(e) => setMiniDescription(e.target.value)}
               ></Form.Control>
             </Form.Group>
 

@@ -1,13 +1,18 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from "react";
 import logo from "../assets/logo.png";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
+// Footer component definition
 const Footer = () => {
+  // Get current year
   const currentYear = new Date().getFullYear();
 
   return (
+    // Footer section
     <footer style={{ background: "#F0F0F0", marginTop: "140px" }}>
       <Container>
+        {/* Subscribe section */}
         <Card
           style={{
             position: "relative",
@@ -20,7 +25,7 @@ const Footer = () => {
         >
           <Row>
             <Col lg={8} md={7} sm={12} xs={12}>
-              {" "}
+              {/* Title */}
               <h1
                 style={{
                   textAlign: "center",
@@ -33,6 +38,7 @@ const Footer = () => {
                 STAY UPTO DATE ABOUT OUR LATEST OFFERS
               </h1>
             </Col>
+            {/* Form section */}
             <Col
               lg={4}
               md={5}
@@ -46,10 +52,11 @@ const Footer = () => {
             >
               <div>
                 <form>
-                  <div class="mt-2">
+                  <div className="mt-2">
+                    {/* Email input field */}
                     <input
                       type="email"
-                      class="form-control"
+                      className="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="✉ Enter your email address"
@@ -57,6 +64,7 @@ const Footer = () => {
                     />
                   </div>
                 </form>
+                {/* Subscribe button */}
                 <Button
                   type="submit"
                   style={{
@@ -80,7 +88,9 @@ const Footer = () => {
           </Row>
         </Card>
 
+        {/* Logo and links section */}
         <Row>
+          {/* Logo */}
           <Col lg={6} md={6} sm={3} xs={6}>
             <Link to="/" style={{ textDecoration: "none" }}>
               <img src={logo} alt="CheezBaich" style={{ width: "60px" }} />
@@ -96,7 +106,7 @@ const Footer = () => {
               </h1>
             </Link>
           </Col>
-
+          {/* Company links */}
           <Col lg={2} md={2} sm={3} xs={6}>
             <h5
               style={{
@@ -108,13 +118,14 @@ const Footer = () => {
             >
               Company
             </h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">About</li>
-              <li class="nav-item mb-2">Features</li>
-              <li class="nav-item mb-2">Works</li>
-              <li class="nav-item mb-2">About</li>
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">About</li>
+              <li className="nav-item mb-2">Features</li>
+              <li className="nav-item mb-2">Works</li>
+              <li className="nav-item mb-2">About</li>
             </ul>
           </Col>
+          {/* Help links */}
           <Col lg={2} md={2} sm={3} xs={6}>
             <h5
               style={{
@@ -126,13 +137,14 @@ const Footer = () => {
             >
               Help
             </h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">Customer Support</li>
-              <li class="nav-item mb-2">Delivery Details</li>
-              <li class="nav-item mb-2">Terms & Conditions</li>
-              <li class="nav-item mb-2">Privacy Policy</li>
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">Customer Support</li>
+              <li className="nav-item mb-2">Delivery Details</li>
+              <li className="nav-item mb-2">Terms & Conditions</li>
+              <li className="nav-item mb-2">Privacy Policy</li>
             </ul>
           </Col>
+          {/* FAQ links */}
           <Col lg={2} md={2} sm={3} xs={6}>
             <h5
               style={{
@@ -144,20 +156,23 @@ const Footer = () => {
             >
               FAQ
             </h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">Manage Deliveries</li>
-              <li class="nav-item mb-2">Payments</li>
-              <li class="nav-item mb-2">Orders</li>
-              <li class="nav-item mb-2">Account</li>
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">Manage Deliveries</li>
+              <li className="nav-item mb-2">Payments</li>
+              <li className="nav-item mb-2">Orders</li>
+              <li className="nav-item mb-2">Account</li>
             </ul>
           </Col>
         </Row>
 
-        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 mt-4 border-top">
+        {/* Copyright */}
+        <div className="d-flex flex-column flex-sm-row justify-content-between py-4 mt-4 border-top">
           <p>© {currentYear} Company, Inc. All rights reserved.</p>
         </div>
       </Container>
     </footer>
   );
 };
+
+// Export Footer component
 export default Footer;

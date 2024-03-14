@@ -28,14 +28,12 @@ dotenv.config();
 // });
 
 const getProducts = asyncHandler(async (req, res) => {
-
-
-
-
   const products = await Product.find()
+  
 
 
   res.json({ products });
+  // console.log('Entered Products');
 });
 // @desc    Fetch single product
 // @route   GET /api/products/:id
@@ -47,6 +45,7 @@ const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {
     return res.json(product);
+
   } else {
     // NOTE: this will run if a valid ObjectId but no product was found
     // i.e. product may be null
