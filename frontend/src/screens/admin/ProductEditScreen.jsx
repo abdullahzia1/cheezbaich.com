@@ -10,7 +10,6 @@ import {
   useUpdateProductMutation,
   useUploadProductImageMutation,
 } from "../../slices/productsApiSlice";
-import JoditEditor from "jodit-react";
 
 const ProductEditScreen = () => {
   // Get productId from route parameters
