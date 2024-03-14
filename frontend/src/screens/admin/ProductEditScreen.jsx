@@ -10,10 +10,13 @@ import {
   useUpdateProductMutation,
   useUploadProductImageMutation,
 } from "../../slices/productsApiSlice";
+import JoditEditor from "jodit-react";
 
 const ProductEditScreen = () => {
+  // Get productId from route parameters
   const { id: productId } = useParams();
 
+  // States for managing product details
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
@@ -21,8 +24,9 @@ const ProductEditScreen = () => {
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
-  const [minidescription, setMiniDescription] = useState("");
+  const [miniDescription, setMiniDescription] = useState(""); // Renamed minidescription to miniDescription for consistency
 
+  // Fetch product details using productId
   const {
     data: product,
     isLoading,
@@ -30,14 +34,16 @@ const ProductEditScreen = () => {
     error,
   } = useGetProductDetailsQuery(productId);
 
+  // Mutation hooks for updating product and uploading product image
   const [updateProduct, { isLoading: loadingUpdate }] =
     useUpdateProductMutation();
-
   const [uploadProductImage, { isLoading: loadingUpload }] =
     useUploadProductImageMutation();
 
+  // Navigation hook for redirecting after updating product
   const navigate = useNavigate();
 
+  // Submit handler for updating product
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -49,9 +55,9 @@ const ProductEditScreen = () => {
         brand,
         category,
         description,
-        minidescription,
+        miniDescription,
         countInStock,
-      }).unwrap(); // NOTE: here we need to unwrap the Promise to catch any rejection in our catch block
+      }).unwrap(); // Unwrap the Promise to catch any rejection in the catch block
       toast.success("Product updated");
       refetch();
       navigate("/admin/productlist");
@@ -60,6 +66,7 @@ const ProductEditScreen = () => {
     }
   };
 
+  // Effect hook to update state with product details once fetched
   useEffect(() => {
     if (product) {
       setName(product.name);
@@ -69,10 +76,11 @@ const ProductEditScreen = () => {
       setCategory(product.category);
       setCountInStock(product.countInStock);
       setDescription(product.description);
-      setMiniDescription(product.minidescription)
+      setMiniDescription(product.miniDescription); // Corrected the state setter function name
     }
   }, [product]);
 
+  // Handler for uploading product image
   const uploadFileHandler = async (e) => {
     const formData = new FormData();
     formData.append("image", e.target.files[0]);
@@ -87,111 +95,70 @@ const ProductEditScreen = () => {
 
   return (
     <>
+      {/* Navigation link */}
       <Link to="/admin/productlist" className="btn btn-light my-3">
         Go back
       </Link>
+      {/* Product edit form */}
       <FormContainer>
-        <h1
-          style={{
-            textAlign: "center",
-            fontSize: "45px",
-            fontWeight: "700",
-            color: "#000000",
-            margin: "20px 0px",
-          }}
-        >
-          Edit Product
-        </h1>
+        <h1>Edit Product</h1>
+        {/* Loader for update process */}
         {loadingUpdate && <Loader />}
+        {/* Loader for fetching product details */}
         {isLoading ? (
           <Loader />
         ) : error ? (
           <Message variant="danger">{error.data.message}</Message>
         ) : (
           <Form onSubmit={submitHandler}>
+            {/* Form fields */}
+            {/* Name */}
             <Form.Group controlId="name">
-              <Form.Label
-                style={{
-                  textAlign: "start",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  color: "#000000",
-                }}
-              >
-                Name
-              </Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 type="name"
                 placeholder="Enter name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
-
+            {/* Price */}
             <Form.Group controlId="price">
-              <Form.Label
-                style={{
-                  textAlign: "start",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  color: "#000000",
-                }}
-              >
-                Price
-              </Form.Label>
+              <Form.Label>Price</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
-
+            {/* Image */}
             <Form.Group controlId="image">
-              <Form.Label
-                style={{
-                  textAlign: "start",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  color: "#000000",
-                }}
-              >
-                Image
-              </Form.Label>
+              <Form.Label>Image</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter image url"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-              ></Form.Control>
+              />
               <Form.Control
                 label="Choose File"
                 onChange={uploadFileHandler}
                 type="file"
-                id="formFileMultiple"
-              ></Form.Control>
+              />
               {loadingUpload && <Loader />}
             </Form.Group>
-
+            {/* Brand */}
             <Form.Group controlId="brand">
-              <Form.Label
-                style={{
-                  textAlign: "start",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  color: "#000000",
-                }}
-              >
-                Brand
-              </Form.Label>
+              <Form.Label>Brand</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter brand"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
-
+            {/* Count In Stock */}
             <Form.Group controlId="countInStock">
               <Form.Label>Count In Stock</Form.Label>
               <Form.Control
@@ -199,69 +166,43 @@ const ProductEditScreen = () => {
                 placeholder="Enter countInStock"
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
-
+            {/* Category */}
             <Form.Group controlId="category">
-              <Form.Label
-                style={{
-                  textAlign: "start",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  color: "#000000",
-                }}
-              >
-                Category
-              </Form.Label>
+              <Form.Label>Category</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              ></Form.Control>
+              />
+            </Form.Group>
+            {/* Mini Description */}
+            <Form.Group controlId="miniDescription">
+              <Form.Label>Mini Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                placeholder="Enter Mini description"
+                value={miniDescription}
+                onChange={(e) => setMiniDescription(e.target.value)}
+              />
             </Form.Group>
 
+            {/* Description */}
             <Form.Group controlId="description">
-              <Form.Label
-                style={{
-                  textAlign: "start",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  color: "#000000",
-                }}
-              >
-                Description
-              </Form.Label>
+              <Form.Label>Description</Form.Label>
               <Form.Control
-                type="text"
+                as="textarea"
                 placeholder="Enter description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-              ></Form.Control>
+              />
             </Form.Group>
 
-            <Form.Group controlId="description">
-              <Form.Label
-                style={{
-                  textAlign: "start",
-                  fontSize: "20px",
-                  fontWeight: "600",
-                  color: "#000000",
-                }}
-              >
-                MINI Description
-              </Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Mini description"
-                value={minidescription}
-                onChange={(e) => setMiniDescription(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-
+            {/* Update button */}
             <Button
               type="submit"
-              variant="primary"
               style={{
                 fontSize: "20px",
                 fontWeight: "300",
