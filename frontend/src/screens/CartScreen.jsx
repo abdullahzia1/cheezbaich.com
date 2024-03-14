@@ -1,16 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import {
   Row,
   Col,
   ListGroup,
-  Form,
-  Button,
   Card,
   Container,
+  Button,
+  Form,
 } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
-import Message from "../components/Message";
+import { Link, useNavigate } from "react-router-dom";
+import Tesseract from "tesseract.js";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
 
 const CartScreen = () => {
@@ -20,12 +21,35 @@ const CartScreen = () => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
+  const [image, setImage] = useState(null);
+  const [pin, setPin] = useState("");
+  const [checkoutEnabled, setCheckoutEnabled] = useState(false);
+
   const addToCartHandler = (product, qty) => {
     dispatch(addToCart({ ...product, qty }));
   };
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    const {
+      data: { text },
+    } = await Tesseract.recognize(file, "eng", {
+      logger: (m) => console.log(m),
+    });
+    const pinRegex = /(\d{5}-\d{7}-\d{1})/;
+    const extractedPin = text.match(pinRegex);
+    if (extractedPin) {
+      setPin(extractedPin[0]);
+      setCheckoutEnabled(true);
+    } else {
+      setPin("");
+      setCheckoutEnabled(false);
+    }
   };
 
   const checkoutHandler = () => {
@@ -348,10 +372,25 @@ const CartScreen = () => {
                         .toFixed(2)}
                     </h3>
                   </div>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                  />
+                  {image && (
+                    <div>
+                      <img src={URL.createObjectURL(image)} alt="Uploaded" />
+                      {pin ? (
+                        <p>Extracted Pin: {pin}</p>
+                      ) : (
+                        <p>No Pin extracted</p>
+                      )}
+                    </div>
+                  )}
                   <Button
                     type="button"
                     className="btn-block"
-                    disabled={cartItems.length === 0}
+                    disabled={cartItems.length === 0 || !checkoutEnabled}
                     onClick={checkoutHandler}
                     style={{
                       fontSize: "20px",
