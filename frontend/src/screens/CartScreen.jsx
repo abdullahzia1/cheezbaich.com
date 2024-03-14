@@ -12,13 +12,18 @@ import {
 import { FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
+import Tesseract from "tesseract.js";
+import { useState } from "react";
 
 const CartScreen = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+
+  const [image, setImage] = useState(null);
+  const [pin, setPin] = useState("");
+  const [checkoutEnabled, setCheckoutEnabled] = useState(false);
 
   const addToCartHandler = (product, qty) => {
     dispatch(addToCart({ ...product, qty }));
@@ -31,6 +36,26 @@ const CartScreen = () => {
   const checkoutHandler = () => {
     navigate("/shipping");
     // navigate("/login?redirect=/shipping");
+  };
+
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    const {
+      data: { text },
+    } = await Tesseract.recognize(file, "eng", {
+      // logger: (m) => console.log(m),
+    });
+    const pinRegex = /(\d{5}-\d{7}-\d{1})/;
+    const extractedPin = text.match(pinRegex);
+    if (extractedPin) {
+      setPin(extractedPin[0]);
+      setCheckoutEnabled(true);
+    } else {
+      setPin("");
+      setCheckoutEnabled(false);
+    }
   };
 
   return (
@@ -348,10 +373,26 @@ const CartScreen = () => {
                         .toFixed(2)}
                     </h3>
                   </div>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                  />
+                  {image && (
+                    <div>
+                      <img src={URL.createObjectURL(image)} alt="Uploaded" style={{ width: '50%'}} />
+                      {pin ? (
+                        <p>Extracted Pin: {pin}</p>
+                      ) : (
+                        <p>No Pin extracted</p>
+                      )}
+                    </div>
+                  )}
+
                   <Button
                     type="button"
                     className="btn-block"
-                    disabled={cartItems.length === 0}
+                    disabled={cartItems.length === 0 || !checkoutEnabled}
                     onClick={checkoutHandler}
                     style={{
                       fontSize: "20px",
