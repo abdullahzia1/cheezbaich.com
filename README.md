@@ -1,6 +1,6 @@
-# MERN Stack Project with PayPal Integration
+# E-Commerce Store
 
-Welcome to our MERN (MongoDB, Express.js, React.js, Node.js) stack project featuring PayPal API integration! This project is designed to provide a seamless e-commerce experience, complete with order verification using Tesseract.js, state management with Redux, and a visually appealing design using Bootstrap and Swiper.
+Welcome to our MERN (MongoDB, Express.js, React.js, Node.js) stack E-commerce store! This project is designed to provide a seamless e-commerce experience, complete with order verification using Tesseract.js, state management with Redux, and a visually appealing design using Bootstrap and Swiper.
 
 ## Features
 
