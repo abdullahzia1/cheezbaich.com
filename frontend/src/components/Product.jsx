@@ -1,4 +1,4 @@
-import { Card, Container } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
 
@@ -14,9 +14,9 @@ const Product = ({ product }) => {
             style={{
               background: "#F0EEED",
               borderRadius: "20px",
-              maxWidth: "290px",
-              MaxHeight: "290px",
-              objectFit: "cover",
+              width: "280px",
+              height: "220px",
+              objectFit: "contain",
               boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
             }}
           />
@@ -52,7 +52,7 @@ const Product = ({ product }) => {
               fontWeight: "800",
             }}
           >
-            ${product.price}
+            Rs.{product.price}
           </Card.Text>
         </Card.Body>
       </div>

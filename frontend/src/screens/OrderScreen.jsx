@@ -4,7 +4,6 @@ import {
   Row,
   Col,
   ListGroup,
-  Image,
   Card,
   Button,
   Container,
@@ -117,7 +116,7 @@ const OrderScreen = () => {
             margin: "60px 0px",
           }}
         >
-          Order: "{order._id}""
+          Order: "{order && order._id.slice(0, 6)}"
         </h1>
         <Row>
           <Col className="my-3" lg={7} md={12} sm={12} xs={12}>
@@ -241,7 +240,6 @@ const OrderScreen = () => {
                           fontWeight: "600",
                           color: "#000000",
                           margin: "60px 0px",
-                          textAlign: "center",
                         }}
                       >
                         Your cart is empty
@@ -333,8 +331,7 @@ const OrderScreen = () => {
                                     color: "rgb(0 0 0 / 60%)",
                                   }}
                                 >
-                                  {item.qty} x ${item.price} = $
-                                  {(item.qty * (item.price * 100)) / 100}
+                                  {item.qty} x Rs. {item.price} = Rs. {(item.qty * (item.price * 100)) / 100}
                                 </h3>
                               </div>
                             </Col>
@@ -387,7 +384,7 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      ${order.itemsPrice}
+                      Rs. {order.itemsPrice}
                     </h3>
                   </div>
 
@@ -415,7 +412,7 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      ${order.shippingPrice}
+                      Rs. {order.shippingPrice}
                     </h3>
                   </div>
 
@@ -443,7 +440,7 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      ${order.taxPrice}
+                      Rs. {order.taxPrice}
                     </h3>
                   </div>
                 </ListGroup.Item>
@@ -472,7 +469,7 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      ${order.totalPrice}
+                      Rs. {order.totalPrice}
                     </h3>
                   </div>
                 </ListGroup.Item>

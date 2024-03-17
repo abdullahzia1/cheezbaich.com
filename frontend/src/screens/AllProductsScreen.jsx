@@ -38,7 +38,7 @@ const AllProductsScreen = () => {
             </h1>
             <Row>
               {data.products.map((product) => (
-                console.log(product),
+                // console.log(product),
                 <Col
                   className="newArrivalResponsive"
                   key={product._id}

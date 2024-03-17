@@ -31,6 +31,7 @@ const ProductScreen = () => {
   const { id: productId } = useParams();
 
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const navigate = useNavigate();
 
   const { pageNumber, keyword } = useParams();
@@ -45,7 +46,6 @@ const ProductScreen = () => {
 
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
-    // navigate("/cart");
   };
 
   const {
@@ -100,10 +100,9 @@ const ProductScreen = () => {
                   className="mb-3"
                   fluid
                   style={{
-                    background: "#F0EEED",
-                    borderRadius: "20px",
-                    objectFit: "cover",
-                    boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
+                    width: "100%",
+                    height:"350px",
+                    objectFit: "contain",
                   }}
                 />
               </Col>
@@ -132,7 +131,7 @@ const ProductScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      ${product.price}
+                      Rs.{product.price}
                     </p>
 
                     <p
@@ -590,7 +589,8 @@ const ProductScreen = () => {
                 margin: "60px 0px",
               }}
             >
-              <button
+               <Link to='/product' style={{ color: '#000000' }}>
+              <Button
                 style={{
                   fontSize: "20px",
                   fontWeight: "300",
@@ -605,7 +605,8 @@ const ProductScreen = () => {
                 }}
               >
                 View All
-              </button>
+              </Button>
+              </Link>
             </div>
 
             <hr className="hr hr-blurry" />

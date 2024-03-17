@@ -6,13 +6,11 @@ import {
   Row,
   Col,
   ListGroup,
-  Image,
   Card,
   Container,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
-import CheckoutSteps from "../components/CheckoutSteps";
 import Loader from "../components/Loader";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice";
 import { clearCartItems } from "../slices/cartSlice";
@@ -53,7 +51,7 @@ const PlaceOrderScreen = () => {
 
   return (
     <>
-      <CheckoutSteps step1 step2 step3 step4 />
+      {/* <CheckoutSteps step1 step2 step3 step4 /> */}
       <Container>
         <Row>
           <Col className="my-3" lg={7} md={12} sm={12} xs={12}>
@@ -136,7 +134,6 @@ const PlaceOrderScreen = () => {
                           fontWeight: "600",
                           color: "#000000",
                           margin: "60px 0px",
-                          textAlign: "center",
                         }}
                       >
                         Your cart is empty
@@ -228,8 +225,8 @@ const PlaceOrderScreen = () => {
                                     color: "rgb(0 0 0 / 60%)",
                                   }}
                                 >
-                                  {item.qty} x ${item.price} = $
-                                  {(item.qty * (item.price * 100)) / 100}
+                                  {item.qty} x Rs. {item.price} = 
+                                  Rs. {(item.qty * (item.price * 100)) / 100}
                                 </h3>
                               </div>
                             </Col>
@@ -283,7 +280,7 @@ const PlaceOrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      ${cart.itemsPrice}
+                      Rs. {cart.itemsPrice}
                     </h3>
                   </div>
 
@@ -311,7 +308,7 @@ const PlaceOrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      ${cart.shippingPrice}
+                      Rs. {cart.shippingPrice}
                     </h3>
                   </div>
 
@@ -339,7 +336,7 @@ const PlaceOrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      ${cart.taxPrice}
+                      Rs. {cart.taxPrice}
                     </h3>
                   </div>
                 </ListGroup.Item>
@@ -368,7 +365,7 @@ const PlaceOrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      ${cart.totalPrice}
+                      Rs. {cart.totalPrice}
                     </h3>
 
                     {error && (

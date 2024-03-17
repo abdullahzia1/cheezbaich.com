@@ -10,7 +10,6 @@ import {
   Container,
 } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
-import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
 import Tesseract from "tesseract.js";
 import { useState } from "react";
@@ -84,7 +83,6 @@ const CartScreen = () => {
                       fontWeight: "600",
                       color: "#000000",
                       margin: "60px 0px",
-                      textAlign: "center",
                     }}
                   >
                     Your cart is empty
@@ -186,7 +184,7 @@ const CartScreen = () => {
                                 color: "#000000",
                               }}
                             >
-                              ${item.price}
+                              Rs. {item.price}
                             </h3>
                           </div>
 
@@ -280,8 +278,7 @@ const CartScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      $
-                      {cartItems
+                      Rs. {cartItems
                         .reduce((acc, item) => acc + item.qty * item.price, 0)
                         .toFixed(2)}
                     </h3>
@@ -311,7 +308,7 @@ const CartScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      $0
+                      Rs. 0
                     </h3>
                   </div>
                   <div
@@ -338,7 +335,7 @@ const CartScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      $0
+                      Rs. 0
                     </h3>
                   </div>
                 </ListGroup.Item>
@@ -367,8 +364,7 @@ const CartScreen = () => {
                         color: "#000000",
                       }}
                     >
-                      $
-                      {cartItems
+                      Rs. {cartItems
                         .reduce((acc, item) => acc + item.qty * item.price, 0)
                         .toFixed(2)}
                     </h3>

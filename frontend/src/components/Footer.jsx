@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
 import logo from "../assets/logo.png";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 // Footer component definition
 const Footer = () => {
   // Get current year
   const currentYear = new Date().getFullYear();
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_c1wwssh", "template_ujsy74a", form.current, {
+        publicKey: "2BV6mEm3MQBmzT6n5",
+      })
+      .then(
+        () => {
+          console.log("Email Sent");
+        },
+        (error) => {
+          console.log("FAILED to sent email...", error.text);
+        }
+      );
+  };
 
   return (
     // Footer section
@@ -51,38 +71,45 @@ const Footer = () => {
               }}
             >
               <div>
-                <form>
+                <form ref={form} onSubmit={sendEmail}>
                   <div className="mt-2">
                     {/* Email input field */}
                     <input
+                      name="user_email"
                       type="email"
                       className="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="✉ Enter your email address"
-                      style={{ borderRadius: "20px", width: "250px" }}
+                      style={{
+                        borderRadius: "20px",
+                        width: "250px",
+                        background: "#ffffff",
+                      }}
                     />
                   </div>
+                  {/* Subscribe button */}
+                  <Button
+                    type="submit"
+                    value="Send"
+                    onClick={sendEmail}
+                    style={{
+                      width: "250px",
+                      fontSize: "15px",
+                      fontWeight: "500",
+                      color: "#000000",
+                      textAlign: "center",
+                      border: "1px Solid black",
+                      background: "#ffffff",
+                      borderRadius: "200px",
+                      margin: "10px 0px",
+                      padding: "10px 25px",
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    Subscribe to Newsletter
+                  </Button>
                 </form>
-                {/* Subscribe button */}
-                <Button
-                  type="submit"
-                  style={{
-                    width: "250px",
-                    fontSize: "15px",
-                    fontWeight: "500",
-                    color: "#000000",
-                    textAlign: "center",
-                    border: "1px Solid black",
-                    background: "#ffffff",
-                    borderRadius: "200px",
-                    margin: "10px 0px",
-                    padding: "10px 25px",
-                    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                  }}
-                >
-                  Subscribe to Newsletter
-                </Button>
               </div>
             </Col>
           </Row>

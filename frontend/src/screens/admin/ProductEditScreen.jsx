@@ -261,7 +261,7 @@ const ProductEditScreen = () => {
 
             {/* Update button */}
             <Button
-              type="submit"
+              type="submit"s
               style={{
                 fontSize: "20px",
                 fontWeight: "300",
