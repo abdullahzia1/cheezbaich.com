@@ -1,21 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/frontendChange
 import React, { useRef } from "react";
 import logo from "../assets/logo.png";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-<<<<<<< HEAD
-=======
-import React from "react";
-import logo from "../assets/logo.png";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
 
 // Footer component definition
 const Footer = () => {
@@ -84,33 +71,16 @@ const Footer = () => {
               }}
             >
               <div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/frontendChange
                 <form ref={form} onSubmit={sendEmail}>
                   <div className="mt-2">
                     {/* Email input field */}
                     <input
                       name="user_email"
-<<<<<<< HEAD
-=======
-                <form>
-                  <div className="mt-2">
-                    {/* Email input field */}
-                    <input
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
                       type="email"
                       className="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="✉ Enter your email address"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/frontendChange
                       style={{
                         borderRadius: "20px",
                         width: "250px",
@@ -140,34 +110,6 @@ const Footer = () => {
                     Subscribe to Newsletter
                   </Button>
                 </form>
-<<<<<<< HEAD
-=======
-                      style={{ borderRadius: "20px", width: "250px" }}
-                    />
-                  </div>
-                </form>
-                {/* Subscribe button */}
-                <Button
-                  type="submit"
-                  style={{
-                    width: "250px",
-                    fontSize: "15px",
-                    fontWeight: "500",
-                    color: "#000000",
-                    textAlign: "center",
-                    border: "1px Solid black",
-                    background: "#ffffff",
-                    borderRadius: "200px",
-                    margin: "10px 0px",
-                    padding: "10px 25px",
-                    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                  }}
-                >
-                  Subscribe to Newsletter
-                </Button>
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
               </div>
             </Col>
           </Row>
@@ -204,27 +146,10 @@ const Footer = () => {
               Company
             </h5>
             <ul className="nav flex-column">
-<<<<<<< HEAD
-<<<<<<< HEAD
-              <Link
-                to={`/About`}
-                style={{ textDecoration: "none", color: "#495057" }}
-              >
-                <li className="nav-item mb-2">About</li>
-                <li className="nav-item mb-2">Contact Us </li>
-              </Link>
-=======
-              <li className="nav-item mb-2">About</li>
-              <li className="nav-item mb-2">Features</li>
-              <li className="nav-item mb-2">Works</li>
-              <li className="nav-item mb-2">About</li>
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
             <Link to={`/About`} style={{ textDecoration: 'none', color: "#495057"}}>
               <li className="nav-item mb-2">About</li>
               <li className="nav-item mb-2">Contact Us </li>
               </Link>
->>>>>>> origin/frontendChange
             </ul>
           </Col>
           {/* Help links */}
@@ -240,27 +165,10 @@ const Footer = () => {
               Help
             </h5>
             <ul className="nav flex-column">
-<<<<<<< HEAD
-<<<<<<< HEAD
-              <Link
-                to={`/Help`}
-                style={{ textDecoration: "none", color: "#495057" }}
-              >
-                <li className="nav-item mb-2">Manage Shipping</li>
-                <li className="nav-item mb-2">Customer Support</li>
-              </Link>
-=======
-              <li className="nav-item mb-2">Customer Support</li>
-              <li className="nav-item mb-2">Delivery Details</li>
-              <li className="nav-item mb-2">Terms & Conditions</li>
-              <li className="nav-item mb-2">Privacy Policy</li>
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
             <Link to={`/Help`} style={{ textDecoration: 'none', color: "#495057"}}>
             <li className="nav-item mb-2">Manage Shipping</li>
               <li className="nav-item mb-2">Customer Support</li>
             </Link>
->>>>>>> origin/frontendChange
             </ul>
           </Col>
           {/* FAQ links */}
@@ -276,27 +184,10 @@ const Footer = () => {
               FAQ
             </h5>
             <ul className="nav flex-column">
-<<<<<<< HEAD
-<<<<<<< HEAD
-              <Link
-                to={`/FAQ`}
-                style={{ textDecoration: "none", color: "#495057" }}
-              >
-                <li className="nav-item mb-2">Terms & Conditions</li>
-                <li className="nav-item mb-2">Return Policy</li>
-              </Link>
-=======
-              <li className="nav-item mb-2">Manage Deliveries</li>
-              <li className="nav-item mb-2">Payments</li>
-              <li className="nav-item mb-2">Orders</li>
-              <li className="nav-item mb-2">Account</li>
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
             <Link to={`/FAQ`} style={{ textDecoration: 'none', color: "#495057"}}>
             <li className="nav-item mb-2">Terms & Conditions</li>
               <li className="nav-item mb-2">Return Policy</li>
               </Link>
->>>>>>> origin/frontendChange
             </ul>
           </Col>
         </Row>

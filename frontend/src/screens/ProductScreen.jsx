@@ -46,21 +46,6 @@ const ProductScreen = () => {
 
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    navigate('/cart');
-=======
-<<<<<<< HEAD
-=======
-    // navigate("/cart");
->>>>>>> origin/main
->>>>>>> Stashed changes
-=======
-    // navigate("/cart");
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
   };
 
   const {
@@ -101,41 +86,6 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-          <Meta title={product.name} description={product.description} />
-          <Row>
-            <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
-            </Col>
-            <Col md={3}>
-              <ListGroup variant='flush'>
-                <ListGroup.Item>
-                  <h3>{product.name}</h3>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Rating
-                    value={product.rating}
-                    text={`${product.numReviews} reviews`}
-                  />
-                </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-                <ListGroup.Item>
-                  Description: {product.description}
-                </ListGroup.Item>
-              </ListGroup>
-            </Col>
-            <Col md={3}>
-              <Card>
-                <ListGroup variant='flush'>
-                  <ListGroup.Item>
-                    <Row>
-                      <Col>Price:</Col>
-                      <Col>
-                        <strong>${product.price}</strong>
-                      </Col>
-                    </Row>
-=======
           <div className="container">
             <Meta
               title={product.name}
@@ -150,54 +100,15 @@ const ProductScreen = () => {
                   className="mb-3"
                   fluid
                   style={{
-<<<<<<< HEAD
-<<<<<<< HEAD
                     width: "100%",
                     height: "350px",
                     objectFit: "contain",
-=======
-                    background: "#F0EEED",
-                    borderRadius: "20px",
-                    objectFit: "cover",
-                    boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
->>>>>>> origin/main
-=======
-                    width: "100%",
-                    height: "350px",
-                    objectFit: "contain",
->>>>>>> origin/frontendChange
                   }}
                 />
               </Col>
               <Col lg={7} md={7} sm={6}>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
-=======
-          <div className="container">
-            <Meta
-              title={product.name}
-              description={product.description}
-              key={productId}
-            />
-            <Row className="d-flex gap-2 mt-3">
-              <Col lg={4} md={4} sm={6}>
-                <Image
-                  src={product.image}
-                  variant="top"
-                  className="mb-3"
-                  fluid
-                  style={{
-                    background: "#F0EEED",
-                    borderRadius: "20px",
-                    objectFit: "cover",
-                    boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
-                  }}
-                />
-              </Col>
-              <Col lg={7} md={7} sm={6}>
-                <ListGroup variant="flush">
-                  <ListGroup.Item>
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                     <h3
                       style={{
                         fontSize: "40px",
@@ -220,23 +131,9 @@ const ProductScreen = () => {
                         color: "#000000",
                       }}
                     >
-<<<<<<< HEAD
-<<<<<<< HEAD
-                      Rs.{product.price}
-                    </p>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
-=======
-                      ${product.price}
-                    </p>
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
                       Rs.{product.price}
                     </p>
 
->>>>>>> origin/frontendChange
                     <p
                       style={{
                         fontSize: "20px",
@@ -244,29 +141,12 @@ const ProductScreen = () => {
                         color: "rgb(0 0 0 / 62%)",
                       }}
                     >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/frontendChange
                       {product.miniDescription &&
                         product.miniDescription
                           .split(" ")
                           .slice(0, 23)
                           .join(" ")}
-<<<<<<< HEAD
-=======
-                      {product.miniDescription}
->>>>>>> origin/main
                     </p>
->>>>>>> Stashed changes
-=======
-                      {product.miniDescription}
-                    </p>
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-                    </p>
->>>>>>> origin/frontendChange
                   </ListGroup.Item>
                   <ListGroup.Item
                     style={{ display: "flex", justifyContent: "flex-start" }}

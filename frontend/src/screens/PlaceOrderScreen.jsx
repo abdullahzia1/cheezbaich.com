@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import Message from '../components/Message';
-import CheckoutSteps from '../components/CheckoutSteps';
-import Loader from '../components/Loader';
-import { useCreateOrderMutation } from '../slices/ordersApiSlice';
-import { clearCartItems } from '../slices/cartSlice';
-=======
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -24,43 +6,14 @@ import {
   Row,
   Col,
   ListGroup,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  Image,
->>>>>>> origin/main
-=======
-  Image,
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
   Card,
   Container,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import CheckoutSteps from "../components/CheckoutSteps";
->>>>>>> origin/main
 import Loader from "../components/Loader";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice";
 import { clearCartItems } from "../slices/cartSlice";
->>>>>>> Stashed changes
-=======
-import CheckoutSteps from "../components/CheckoutSteps";
-import Loader from "../components/Loader";
-import { useCreateOrderMutation } from "../slices/ordersApiSlice";
-import { clearCartItems } from "../slices/cartSlice";
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-import Loader from "../components/Loader";
-import { useCreateOrderMutation } from "../slices/ordersApiSlice";
-import { clearCartItems } from "../slices/cartSlice";
->>>>>>> origin/frontendChange
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
@@ -98,33 +51,7 @@ const PlaceOrderScreen = () => {
 
   return (
     <>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      <CheckoutSteps step1 step2 step3 step4 />
-<<<<<<< HEAD
-      <Row>
-        <Col md={8}>
-          <ListGroup variant='flush'>
-            <ListGroup.Item>
-              <h2>Shipping</h2>
-              <p>
-                <strong>Address:</strong>
-                {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
-                {cart.shippingAddress.postalCode},{' '}
-                {cart.shippingAddress.country}
-              </p>
-            </ListGroup.Item>
-=======
-<<<<<<< HEAD
       {/* <CheckoutSteps step1 step2 step3 step4 /> */}
-=======
-      <CheckoutSteps step1 step2 step3 step4 />
->>>>>>> origin/main
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-      {/* <CheckoutSteps step1 step2 step3 step4 /> */}
->>>>>>> origin/frontendChange
       <Container>
         <Row>
           <Col className="my-3" lg={7} md={12} sm={12} xs={12}>
@@ -158,13 +85,6 @@ const PlaceOrderScreen = () => {
                     {cart.shippingAddress.country}
                   </p>
                 </ListGroup.Item>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
 
                 <ListGroup.Item>
                   <h2
@@ -193,98 +113,6 @@ const PlaceOrderScreen = () => {
                   </p>
                 </ListGroup.Item>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            <ListGroup.Item>
-              <h2>Order Items</h2>
-              {cart.cartItems.length === 0 ? (
-                <Message>Your cart is empty</Message>
-              ) : (
-                <ListGroup variant='flush'>
-                  {cart.cartItems.map((item, index) => (
-                    <ListGroup.Item key={index}>
-                      <Row>
-                        <Col md={1}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
-                        </Col>
-                        <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </Col>
-                        <Col md={4}>
-                          {item.qty} x ${item.price} = $
-                          {(item.qty * (item.price * 100)) / 100}
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              )}
-            </ListGroup.Item>
-          </ListGroup>
-        </Col>
-        <Col md={4}>
-          <Card>
-            <ListGroup variant='flush'>
-              <ListGroup.Item>
-                <h2>Order Summary</h2>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Items</Col>
-                  <Col>${cart.itemsPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Shipping</Col>
-                  <Col>${cart.shippingPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Tax</Col>
-                  <Col>${cart.taxPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Total</Col>
-                  <Col>${cart.totalPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                {error && (
-                  <Message variant='danger'>{error.data.message}</Message>
-                )}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Button
-                  type='button'
-                  className='btn-block'
-                  disabled={cart.cartItems === 0}
-                  onClick={placeOrderHandler}
-                >
-                  Place Order
-                </Button>
-                {isLoading && <Loader />}
-              </ListGroup.Item>
-            </ListGroup>
-          </Card>
-        </Col>
-      </Row>
-=======
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
                 <ListGroup.Item>
                   <h2
                     style={{
@@ -306,17 +134,6 @@ const PlaceOrderScreen = () => {
                           fontWeight: "600",
                           color: "#000000",
                           margin: "60px 0px",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                          textAlign: "center",
->>>>>>> origin/main
-=======
-                          textAlign: "center",
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
                         }}
                       >
                         Your cart is empty
@@ -408,23 +225,8 @@ const PlaceOrderScreen = () => {
                                     color: "rgb(0 0 0 / 60%)",
                                   }}
                                 >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                                   {item.qty} x Rs. {item.price} = 
                                   Rs. {(item.qty * (item.price * 100)) / 100}
-=======
-                                  {item.qty} x ${item.price} = $
-                                  {(item.qty * (item.price * 100)) / 100}
->>>>>>> origin/main
-=======
-                                  {item.qty} x ${item.price} = $
-                                  {(item.qty * (item.price * 100)) / 100}
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-                                  {item.qty} x Rs. {item.price} = 
-                                  Rs. {(item.qty * (item.price * 100)) / 100}
->>>>>>> origin/frontendChange
                                 </h3>
                               </div>
                             </Col>
@@ -478,19 +280,7 @@ const PlaceOrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                       Rs. {cart.itemsPrice}
-=======
-                      ${cart.itemsPrice}
->>>>>>> origin/main
-=======
-                      ${cart.itemsPrice}
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-                      Rs. {cart.itemsPrice}
->>>>>>> origin/frontendChange
                     </h3>
                   </div>
 
@@ -518,19 +308,7 @@ const PlaceOrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                       Rs. {cart.shippingPrice}
-=======
-                      ${cart.shippingPrice}
->>>>>>> origin/main
-=======
-                      ${cart.shippingPrice}
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-                      Rs. {cart.shippingPrice}
->>>>>>> origin/frontendChange
                     </h3>
                   </div>
 
@@ -558,19 +336,7 @@ const PlaceOrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                       Rs. {cart.taxPrice}
-=======
-                      ${cart.taxPrice}
->>>>>>> origin/main
-=======
-                      ${cart.taxPrice}
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-                      Rs. {cart.taxPrice}
->>>>>>> origin/frontendChange
                     </h3>
                   </div>
                 </ListGroup.Item>
@@ -599,19 +365,7 @@ const PlaceOrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                       Rs. {cart.totalPrice}
-=======
-                      ${cart.totalPrice}
->>>>>>> origin/main
-=======
-                      ${cart.totalPrice}
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-                      Rs. {cart.totalPrice}
->>>>>>> origin/frontendChange
                     </h3>
 
                     {error && (
@@ -646,13 +400,6 @@ const PlaceOrderScreen = () => {
           </Col>
         </Row>
       </Container>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
     </>
   );
 };

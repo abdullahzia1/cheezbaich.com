@@ -1,38 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import FormContainer from '../components/FormContainer';
-import CheckoutSteps from '../components/CheckoutSteps';
-import { saveShippingAddress } from '../slices/cartSlice';
-=======
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import CheckoutSteps from "../components/CheckoutSteps";
->>>>>>> origin/main
 import { saveShippingAddress } from "../slices/cartSlice";
->>>>>>> Stashed changes
-=======
-import CheckoutSteps from "../components/CheckoutSteps";
-import { saveShippingAddress } from "../slices/cartSlice";
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-import { saveShippingAddress } from "../slices/cartSlice";
->>>>>>> origin/frontendChange
 
 const ShippingScreen = () => {
   const cart = useSelector((state) => state.cart);
@@ -56,22 +27,7 @@ const ShippingScreen = () => {
 
   return (
     <FormContainer>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      <CheckoutSteps step1 step2 />
-<<<<<<< HEAD
-      <h1>Shipping</h1>
-=======
-<<<<<<< HEAD
       {/* <CheckoutSteps step1 step2 /> */}
-=======
-      <CheckoutSteps step1 step2 />
->>>>>>> origin/main
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-      {/* <CheckoutSteps step1 step2 /> */}
->>>>>>> origin/frontendChange
       <h1
         style={{
           textAlign: "start",
@@ -83,13 +39,6 @@ const ShippingScreen = () => {
       >
         Shipping
       </h1>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
       <Form onSubmit={submitHandler}>
         <Form.Group className="my-2" controlId="address">
           <Form.Label>

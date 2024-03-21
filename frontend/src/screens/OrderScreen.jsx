@@ -1,36 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
-import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
-import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import Message from '../components/Message';
-import Loader from '../components/Loader';
-=======
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   Row,
   Col,
   ListGroup,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  Image,
->>>>>>> origin/main
-=======
-  Image,
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
   Card,
   Button,
   Container,
@@ -40,13 +13,6 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
 import {
   useDeliverOrderMutation,
   useGetOrderDetailsQuery,
@@ -140,41 +106,6 @@ const OrderScreen = () => {
     <Message variant="danger">{error.data.message}</Message>
   ) : (
     <>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      <h1>Order {order._id}</h1>
-      <Row>
-        <Col md={8}>
-          <ListGroup variant='flush'>
-            <ListGroup.Item>
-              <h2>Shipping</h2>
-              <p>
-                <strong>Name: </strong> {order.user.name}
-              </p>
-              <p>
-                <strong>Email: </strong>{' '}
-                <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
-              </p>
-              <p>
-                <strong>Address:</strong>
-                {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
-                {order.shippingAddress.postalCode},{' '}
-                {order.shippingAddress.country}
-              </p>
-              {order.isDelivered ? (
-                <Message variant='success'>
-                  Delivered on {order.deliveredAt}
-                </Message>
-              ) : (
-                <Message variant='danger'>Not Delivered</Message>
-              )}
-            </ListGroup.Item>
-=======
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
       <Container>
         <h1
           style={{
@@ -185,502 +116,12 @@ const OrderScreen = () => {
             margin: "60px 0px",
           }}
         >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
           Order: "{order && order._id.slice(0, 6)}"
-=======
-          Order: "{order._id}""
->>>>>>> origin/main
-=======
-          Order: "{order._id}""
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
-          Order: "{order && order._id.slice(0, 6)}"
->>>>>>> origin/frontendChange
         </h1>
         <Row>
           <Col className="my-3" lg={7} md={12} sm={12} xs={12}>
             <Card className="container">
               <ListGroup variant="flush">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <ListGroup.Item>
-                  <h2
-                    style={{
-                      textAlign: "start",
-                      fontSize: "30px",
-                      fontWeight: "700",
-                      color: "#000000",
-                      margin: "20px 0px",
-                    }}
-                  >
-                    Shipping
-                  </h2>
-                  <p>
-                    <strong
-                      style={{
-                        textAlign: "start",
-                        fontSize: "18px",
-                        fontWeight: "700",
-                        color: "#000000",
-                      }}
-                    >
-                      Name:{" "}
-                    </strong>{" "}
-                    {order.user.name}
-                  </p>
-                  <p>
-                    <strong
-                      style={{
-                        textAlign: "start",
-                        fontSize: "18px",
-                        fontWeight: "700",
-                        color: "#000000",
-                      }}
-                    >
-                      Email:{" "}
-                    </strong>{" "}
-                    <a href={`mailto:${order.user.email}`}>
-                      {order.user.email}
-                    </a>
-                  </p>
-                  <p>
-                    <strong
-                      style={{
-                        textAlign: "start",
-                        fontSize: "18px",
-                        fontWeight: "700",
-                        color: "#000000",
-                      }}
-                    >
-                      Address:
-                    </strong>
-                    {order.shippingAddress.address},{" "}
-                    {order.shippingAddress.city}{" "}
-                    {order.shippingAddress.postalCode},{" "}
-                    {order.shippingAddress.country}
-                  </p>
-                  {order.isDelivered ? (
-                    <Message variant="success">
-                      Delivered on {order.deliveredAt}
-                    </Message>
-                  ) : (
-                    <Message variant="danger">Not Delivered Yet</Message>
-                  )}
-                </ListGroup.Item>
->>>>>>> Stashed changes
-
-            <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <p>
-                <strong>Method: </strong>
-                {order.paymentMethod}
-              </p>
-              {order.isPaid ? (
-                <Message variant='success'>Paid on {order.paidAt}</Message>
-              ) : (
-                <Message variant='danger'>Not Paid</Message>
-              )}
-            </ListGroup.Item>
-
-<<<<<<< Updated upstream
-            <ListGroup.Item>
-              <h2>Order Items</h2>
-              {order.orderItems.length === 0 ? (
-                <Message>Order is empty</Message>
-              ) : (
-                <ListGroup variant='flush'>
-                  {order.orderItems.map((item, index) => (
-                    <ListGroup.Item key={index}>
-                      <Row>
-                        <Col md={1}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
-                        </Col>
-                        <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </Col>
-                        <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
-                        </Col>
-                      </Row>
-=======
-                <ListGroup.Item>
-                  <h2
-                    style={{
-                      textAlign: "start",
-                      fontSize: "30px",
-                      fontWeight: "700",
-                      color: "#000000",
-                      margin: "20px 0px",
-                    }}
-                  >
-                    Order Items
-                  </h2>
-                  {order.orderItems.length === 0 ? (
-                    <Message>
-                      <h1
-                        style={{
-                          textAlign: "start",
-                          fontSize: "45px",
-                          fontWeight: "600",
-                          color: "#000000",
-                          margin: "60px 0px",
-<<<<<<< HEAD
-=======
-                          textAlign: "center",
->>>>>>> origin/main
-                        }}
-                      >
-                        Your cart is empty
-                      </h1>
-                      <Link
-                        to="/"
-                        style={{
-                          textDecoration: "none",
-                          fontSize: "35px",
-                          fontWeight: "600",
-                          color: "#000000",
-                          margin: "60px 0px",
-                          textAlign: "center",
-                        }}
-                      >
-                        <Button
-                          style={{
-                            fontSize: "18px",
-                            fontWeight: "300",
-                            color: "#ffff",
-                            textAlign: "center",
-                            border: "1px Solid black",
-                            background: "black",
-                            borderRadius: "200px",
-                            padding: "10px 25px",
-                            boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                            width: "70%",
-                            margin: "60px auto",
-                            display: "flex",
-                            justifyContent: "center",
-                          }}
-                        >
-                          Go Home Page
-                        </Button>
-                      </Link>
-                    </Message>
-                  ) : (
-                    <ListGroup variant="flush">
-                      {order.orderItems.map((item, index) => (
-                        <ListGroup.Item key={index}>
-                          <Row style={{ minHeight: "180px", padding: "0px" }}>
-                            <Col lg={4} md={6} sm={6} xs={7}>
-                              <Link to={`/product/${item._id}`}>
-                                <Card.Img
-                                  src={item.image}
-                                  alt={item.name}
-                                  variant="top"
-                                  style={{
-                                    background: "#F0EEED",
-                                    borderRadius: "15px",
-                                    width: "100%",
-                                    height: "100%",
-                                    objectFit: "contain",
-                                    margin: "auto",
-                                    boxShadow:
-                                      "rgba(0, 0, 0, 0.09) 0px 3px 12px",
-                                  }}
-                                />
-                              </Link>
-                            </Col>
-                            <Col lg={8} md={6} sm={6} xs={4}>
-                              <div
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  justifyContent: "space-around",
-                                  alignItems: "start",
-                                  height: "100%",
-                                }}
-                              >
-                                <Link
-                                  to={`/product/${item.product}`}
-                                  style={{ textDecoration: "none" }}
-                                >
-                                  <h3
-                                    style={{
-                                      fontSize: "20px",
-                                      fontWeight: "600",
-                                      color: "#000000",
-                                    }}
-                                  >
-                                    {item.name}
-                                  </h3>
-                                </Link>
-                                <h3
-                                  style={{
-                                    fontSize: "20px",
-                                    fontWeight: "500",
-                                    color: "rgb(0 0 0 / 60%)",
-                                  }}
-                                >
-<<<<<<< HEAD
-                                  {item.qty} x Rs. {item.price} = Rs. {(item.qty * (item.price * 100)) / 100}
-=======
-                                  {item.qty} x ${item.price} = $
-                                  {(item.qty * (item.price * 100)) / 100}
->>>>>>> origin/main
-                                </h3>
-                              </div>
-                            </Col>
-                          </Row>
-                        </ListGroup.Item>
-                      ))}
-                    </ListGroup>
-                  )}
-                </ListGroup.Item>
-              </ListGroup>
-            </Card>
-          </Col>
-          <Col className="my-3" lg={5} md={12} sm={12} xs={12}>
-            <Card className="container">
-              <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <h1
-                    style={{
-                      textAlign: "start",
-                      fontSize: "30px",
-                      fontWeight: "700",
-                      color: "#000000",
-                      margin: "20px 0px",
-                    }}
-                  >
-                    Order Summary
-                  </h1>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignContent: "center",
-                      margin: "10px 0px",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        fontSize: "22px",
-                        fontWeight: "700",
-                        color: "rgb(0 0 0 / 60%)",
-                      }}
-                    >
-                      Items
-                    </h3>
-                    <h3
-                      style={{
-                        fontSize: "22px",
-                        fontWeight: "700",
-                        color: "#000000",
-                      }}
-                    >
-<<<<<<< HEAD
-                      Rs. {order.itemsPrice}
-=======
-                      ${order.itemsPrice}
->>>>>>> origin/main
-                    </h3>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignContent: "center",
-                      margin: "10px 0px",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        fontSize: "22px",
-                        fontWeight: "700",
-                        color: "rgb(0 0 0 / 60%)",
-                      }}
-                    >
-                      Shipping
-                    </h3>
-                    <h3
-                      style={{
-                        fontSize: "22px",
-                        fontWeight: "700",
-                        color: "#000000",
-                      }}
-                    >
-<<<<<<< HEAD
-                      Rs. {order.shippingPrice}
-=======
-                      ${order.shippingPrice}
->>>>>>> origin/main
-                    </h3>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignContent: "center",
-                      margin: "10px 0px",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        fontSize: "22px",
-                        fontWeight: "700",
-                        color: "rgb(0 0 0 / 60%)",
-                      }}
-                    >
-                      Tax
-                    </h3>
-                    <h3
-                      style={{
-                        fontSize: "22px",
-                        fontWeight: "700",
-                        color: "#000000",
-                      }}
-                    >
-<<<<<<< HEAD
-                      Rs. {order.taxPrice}
-=======
-                      ${order.taxPrice}
->>>>>>> origin/main
-                    </h3>
-                  </div>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignContent: "center",
-                      margin: "10px 0px",
-                    }}
-                  >
-                    <h3
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: "700",
-                        color: "#000000",
-                      }}
-                    >
-                      Total:
-                    </h3>
-                    <h3
-                      style={{
-                        fontSize: "22px",
-                        fontWeight: "700",
-                        color: "#000000",
-                      }}
-                    >
-<<<<<<< HEAD
-                      Rs. {order.totalPrice}
-=======
-                      ${order.totalPrice}
->>>>>>> origin/main
-                    </h3>
-                  </div>
-                </ListGroup.Item>
-                {!order.isPaid && (
-                  <>
-                    {loadingPay && <Loader />}
-
-                    {isPending ? (
-                      <Loader />
-                    ) : (
-                      <div>
-                        <div>
-                          <PayPalButtons
-                            createOrder={createOrder}
-                            onApprove={onApprove}
-                            onError={onError}
-                          ></PayPalButtons>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                )}
-
-                {loadingDeliver && <Loader />}
-
-                {userInfo &&
-                  userInfo.isAdmin &&
-                  order.isPaid &&
-                  !order.isDelivered && (
-                    <ListGroup.Item>
-                      <Button
-                        type="button"
-                        className="btn btn-block"
-                        onClick={deliverHandler}
-                        style={{
-                          fontSize: "20px",
-                          fontWeight: "300",
-                          color: "#ffff",
-                          textAlign: "center",
-                          border: "1px Solid black",
-                          background: "black",
-                          borderRadius: "200px",
-                          margin: "20px 0px",
-                          padding: "10px 25px",
-                          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                          width: "100%",
-                        }}
-                      >
-                        Mark As Delivered
-                      </Button>
->>>>>>> Stashed changes
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              )}
-            </ListGroup.Item>
-          </ListGroup>
-        </Col>
-        <Col md={4}>
-          <Card>
-            <ListGroup variant='flush'>
-              <ListGroup.Item>
-                <h2>Order Summary</h2>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Items</Col>
-                  <Col>${order.itemsPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Shipping</Col>
-                  <Col>${order.shippingPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Tax</Col>
-                  <Col>${order.taxPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Total</Col>
-                  <Col>${order.totalPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              {!order.isPaid && (
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
                 <ListGroup.Item>
                   <h2
                     style={{
@@ -799,10 +240,6 @@ const OrderScreen = () => {
                           fontWeight: "600",
                           color: "#000000",
                           margin: "60px 0px",
-<<<<<<< HEAD
-                          textAlign: "center",
-=======
->>>>>>> origin/frontendChange
                         }}
                       >
                         Your cart is empty
@@ -894,12 +331,7 @@ const OrderScreen = () => {
                                     color: "rgb(0 0 0 / 60%)",
                                   }}
                                 >
-<<<<<<< HEAD
-                                  {item.qty} x ${item.price} = $
-                                  {(item.qty * (item.price * 100)) / 100}
-=======
                                   {item.qty} x Rs. {item.price} = Rs. {(item.qty * (item.price * 100)) / 100}
->>>>>>> origin/frontendChange
                                 </h3>
                               </div>
                             </Col>
@@ -952,11 +384,7 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-<<<<<<< HEAD
-                      ${order.itemsPrice}
-=======
                       Rs. {order.itemsPrice}
->>>>>>> origin/frontendChange
                     </h3>
                   </div>
 
@@ -984,11 +412,7 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-<<<<<<< HEAD
-                      ${order.shippingPrice}
-=======
                       Rs. {order.shippingPrice}
->>>>>>> origin/frontendChange
                     </h3>
                   </div>
 
@@ -1016,11 +440,7 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-<<<<<<< HEAD
-                      ${order.taxPrice}
-=======
                       Rs. {order.taxPrice}
->>>>>>> origin/frontendChange
                     </h3>
                   </div>
                 </ListGroup.Item>
@@ -1049,11 +469,7 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
-<<<<<<< HEAD
-                      ${order.totalPrice}
-=======
                       Rs. {order.totalPrice}
->>>>>>> origin/frontendChange
                     </h3>
                   </div>
                 </ListGroup.Item>

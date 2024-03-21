@@ -86,45 +86,6 @@ const ProductListScreen = () => {
           </Col>
         </Row>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      {loadingCreate && <Loader />}
-      {loadingDelete && <Loader />}
-      {isLoading ? (
-        <Loader />
-      ) : error ? (
-        <Message variant='danger'>{error.data.message}</Message>
-      ) : (
-        <>
-          <Table striped bordered hover responsive className='table-sm'>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.products.map((product) => (
-                <tr key={product._id}>
-                  <td>{product._id}</td>
-                  <td>{product.name}</td>
-                  <td>${product.price}</td>
-                  <td>{product.category}</td>
-                  <td>{product.brand}</td>
-                  <td>
-                    <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                      <Button variant='light' className='btn-sm mx-2'>
-                        <FaEdit />
-=======
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
         {loadingCreate && <Loader />}
         {loadingDelete && <Loader />}
         {isLoading ? (
@@ -142,8 +103,6 @@ const ProductListScreen = () => {
                   <th>CATEGORY</th>
                   <th>BRAND</th>
                   <th></th>
-<<<<<<< HEAD
-<<<<<<< HEAD
                 </tr>
               </thead>
               <tbody>
@@ -151,52 +110,7 @@ const ProductListScreen = () => {
                   <tr key={product._id}>
                     <td>{product._id}</td>
                     <td>{product.name}</td>
-<<<<<<< HEAD
                     <td>Rs.{product.price}</td>
-=======
-                    <td>${product.price}</td>
->>>>>>> origin/main
-                    <td>{product.category}</td>
-                    <td>{product.brand}</td>
-                    <td>
-                      <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                        <Button variant="light" className="btn-sm mx-2">
-                          <FaEdit />
-                        </Button>
-                      </LinkContainer>
-                      <Button
-                        variant="danger"
-                        className="btn-sm"
-                        onClick={() => deleteHandler(product._id)}
-                      >
-                        <FaTrash style={{ color: "white" }} />
->>>>>>> Stashed changes
-                      </Button>
-                    </LinkContainer>
-                    <Button
-                      variant='danger'
-                      className='btn-sm'
-                      onClick={() => deleteHandler(product._id)}
-                    >
-                      <FaTrash style={{ color: 'white' }} />
-                    </Button>
-                  </td>
-=======
->>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
-=======
->>>>>>> origin/frontendChange
-                </tr>
-              </thead>
-              <tbody>
-                {data.products.map((product) => (
-                  <tr key={product._id}>
-                    <td>{product._id}</td>
-                    <td>{product.name}</td>
-<<<<<<< HEAD
-                    <td>${product.price}</td>
-=======
-                    <td>Rs.{product.price}</td>
->>>>>>> origin/frontendChange
                     <td>{product.category}</td>
                     <td>{product.brand}</td>
                     <td>
