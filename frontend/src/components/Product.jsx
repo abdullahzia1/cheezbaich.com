@@ -1,6 +1,6 @@
-import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Rating from './Rating';
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Rating from "./Rating";
 
 const Product = ({ product }) => {
   return (
@@ -11,10 +11,33 @@ const Product = ({ product }) => {
 
       <Card.Body>
         <Link to={`/product/${product._id}`}>
-          <Card.Title as='div' className='product-title'>
-            <strong>{product.name}</strong>
-          </Card.Title>
+          <Card.Img
+            src={product.image}
+            variant="top"
+            className="mb-3"
+            style={{
+              background: "#F0EEED",
+              borderRadius: "20px",
+              width: "280px",
+              height: "220px",
+              objectFit: "contain",
+              boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
+            }}
+          />
         </Link>
+        <Card.Body>
+          <Link
+            to={`/product/${product._id}`}
+            style={{ textDecoration: "none", color: "#000000", margin: "0" }}
+          >
+            <Card.Title
+              as="div"
+              className="product-title"
+              style={{ fontSize: "18px", fontWeight: "600" }}
+            >
+              <strong style={{}}>{product.name}</strong>
+            </Card.Title>
+          </Link>
 
         <Card.Text as='div'>
           <Rating
@@ -23,9 +46,21 @@ const Product = ({ product }) => {
           />
         </Card.Text>
 
-        <Card.Text as='h3'>${product.price}</Card.Text>
-      </Card.Body>
-    </Card>
+          <Card.Text
+            as="h3"
+            style={{
+              textDecoration: "none",
+              color: "#000000",
+              margin: "0",
+              fontSize: "24px",
+              fontWeight: "800",
+            }}
+          >
+            Rs.{product.price}
+          </Card.Text>
+        </Card.Body>
+      </div>
+    </>
   );
 };
 

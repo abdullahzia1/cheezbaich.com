@@ -34,7 +34,14 @@ const ProductScreen = () => {
 
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
+<<<<<<< Updated upstream
     navigate('/cart');
+=======
+<<<<<<< HEAD
+=======
+    // navigate("/cart");
+>>>>>>> origin/main
+>>>>>>> Stashed changes
   };
 
   const {
@@ -78,6 +85,7 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
+<<<<<<< Updated upstream
           <Meta title={product.name} description={product.description} />
           <Row>
             <Col md={6}>
@@ -110,6 +118,83 @@ const ProductScreen = () => {
                         <strong>${product.price}</strong>
                       </Col>
                     </Row>
+=======
+          <div className="container">
+            <Meta
+              title={product.name}
+              description={product.description}
+              key={productId}
+            />
+            <Row className="d-flex gap-2 mt-3">
+              <Col lg={4} md={4} sm={6}>
+                <Image
+                  src={product.image}
+                  variant="top"
+                  className="mb-3"
+                  fluid
+                  style={{
+<<<<<<< HEAD
+                    width: "100%",
+                    height: "350px",
+                    objectFit: "contain",
+=======
+                    background: "#F0EEED",
+                    borderRadius: "20px",
+                    objectFit: "cover",
+                    boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
+>>>>>>> origin/main
+                  }}
+                />
+              </Col>
+              <Col lg={7} md={7} sm={6}>
+                <ListGroup variant="flush">
+                  <ListGroup.Item>
+                    <h3
+                      style={{
+                        fontSize: "40px",
+                        fontWeight: "700",
+                        color: "#000000",
+                      }}
+                    >
+                      {product.name}
+                    </h3>
+                    <div style={{ fontSize: "20px" }}>
+                      <Rating
+                        value={product.rating}
+                        text={`${product.numReviews} reviews`}
+                      />
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "30px",
+                        fontWeight: "900",
+                        color: "#000000",
+                      }}
+                    >
+                      Rs.{product.price}
+                    </p>
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/main
+                    <p
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "300",
+                        color: "rgb(0 0 0 / 62%)",
+                      }}
+                    >
+<<<<<<< HEAD
+                      {product.miniDescription &&
+                        product.miniDescription
+                          .split(" ")
+                          .slice(0, 23)
+                          .join(" ")}
+=======
+                      {product.miniDescription}
+>>>>>>> origin/main
+                    </p>
+>>>>>>> Stashed changes
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <Row>

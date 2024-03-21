@@ -60,6 +60,7 @@ const ProductListScreen = () => {
         </Col>
       </Row>
 
+<<<<<<< Updated upstream
       {loadingCreate && <Loader />}
       {loadingDelete && <Loader />}
       {isLoading ? (
@@ -91,6 +92,51 @@ const ProductListScreen = () => {
                     <LinkContainer to={`/admin/product/${product._id}/edit`}>
                       <Button variant='light' className='btn-sm mx-2'>
                         <FaEdit />
+=======
+        {loadingCreate && <Loader />}
+        {loadingDelete && <Loader />}
+        {isLoading ? (
+          <Loader />
+        ) : error ? (
+          <Message variant="danger">{error.data.message}</Message>
+        ) : (
+          <>
+            <Table striped bordered hover responsive className="table-sm">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>PRICE</th>
+                  <th>CATEGORY</th>
+                  <th>BRAND</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.products.map((product) => (
+                  <tr key={product._id}>
+                    <td>{product._id}</td>
+                    <td>{product.name}</td>
+<<<<<<< HEAD
+                    <td>Rs.{product.price}</td>
+=======
+                    <td>${product.price}</td>
+>>>>>>> origin/main
+                    <td>{product.category}</td>
+                    <td>{product.brand}</td>
+                    <td>
+                      <LinkContainer to={`/admin/product/${product._id}/edit`}>
+                        <Button variant="light" className="btn-sm mx-2">
+                          <FaEdit />
+                        </Button>
+                      </LinkContainer>
+                      <Button
+                        variant="danger"
+                        className="btn-sm"
+                        onClick={() => deleteHandler(product._id)}
+                      >
+                        <FaTrash style={{ color: "white" }} />
+>>>>>>> Stashed changes
                       </Button>
                     </LinkContainer>
                     <Button

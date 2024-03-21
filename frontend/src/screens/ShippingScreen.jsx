@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -5,6 +6,18 @@ import { useNavigate } from 'react-router-dom';
 import FormContainer from '../components/FormContainer';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { saveShippingAddress } from '../slices/cartSlice';
+=======
+import { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import FormContainer from "../components/FormContainer";
+<<<<<<< HEAD
+=======
+import CheckoutSteps from "../components/CheckoutSteps";
+>>>>>>> origin/main
+import { saveShippingAddress } from "../slices/cartSlice";
+>>>>>>> Stashed changes
 
 const ShippingScreen = () => {
   const cart = useSelector((state) => state.cart);
@@ -28,8 +41,27 @@ const ShippingScreen = () => {
 
   return (
     <FormContainer>
+<<<<<<< Updated upstream
       <CheckoutSteps step1 step2 />
       <h1>Shipping</h1>
+=======
+<<<<<<< HEAD
+      {/* <CheckoutSteps step1 step2 /> */}
+=======
+      <CheckoutSteps step1 step2 />
+>>>>>>> origin/main
+      <h1
+        style={{
+          textAlign: "start",
+          fontSize: "45px",
+          fontWeight: "700",
+          color: "#000000",
+          margin: "60px 0px",
+        }}
+      >
+        Shipping
+      </h1>
+>>>>>>> Stashed changes
       <Form onSubmit={submitHandler}>
         <Form.Group className='my-2' controlId='address'>
           <Form.Label>Address</Form.Label>
