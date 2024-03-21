@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Form, Button, Row, Col } from 'react-bootstrap';
+import { Table, Form, Button, Row, Col, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaTimes } from 'react-icons/fa';
@@ -53,9 +53,21 @@ const ProfileScreen = () => {
   };
 
   return (
+    <>
+    <Container>
     <Row>
       <Col md={3}>
-        <h2>User Profile</h2>
+      <h1
+              style={{
+                textAlign: "Start",
+                fontSize: "45px",
+                fontWeight: "600",
+                color: "#000000",
+                margin: "60px 0px",
+              }}
+            >
+              User Profile
+            </h1>
 
         <Form onSubmit={submitHandler}>
           <Form.Group className='my-2' controlId='name'>
@@ -98,14 +110,36 @@ const ProfileScreen = () => {
             ></Form.Control>
           </Form.Group>
 
-          <Button type='submit' variant='primary'>
+          <Button type='submit' variant='primary'
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: "300",
+                    color: "#ffff",
+                    textAlign: "center",
+                    border: "1px Solid black",
+                    background: "black",
+                    borderRadius: "200px",
+                    margin: "20px 0px",
+                    padding: "10px 25px",
+                    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                  }}>
             Update
           </Button>
           {loadingUpdateProfile && <Loader />}
         </Form>
       </Col>
       <Col md={9}>
-        <h2>My Orders</h2>
+      <h1
+              style={{
+                textAlign: "center",
+                fontSize: "45px",
+                fontWeight: "600",
+                color: "#000000",
+                margin: "60px 0px",
+              }}
+            >
+              My Orders
+            </h1>
         {isLoading ? (
           <Loader />
         ) : error ? (
@@ -158,6 +192,9 @@ const ProfileScreen = () => {
         )}
       </Col>
     </Row>
+    </Container>
+    </>
+
   );
 };
 

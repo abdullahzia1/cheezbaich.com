@@ -1,16 +1,16 @@
-import { LinkContainer } from 'react-router-bootstrap';
-import { Table, Button, Row, Col } from 'react-bootstrap';
-import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa';
-import { useParams } from 'react-router-dom';
-import Message from '../../components/Message';
-import Loader from '../../components/Loader';
-import Paginate from '../../components/Paginate';
+import { LinkContainer } from "react-router-bootstrap";
+import { Table, Button, Row, Col, Container } from "react-bootstrap";
+import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import Message from "../../components/Message";
+import Loader from "../../components/Loader";
+import Paginate from "../../components/Paginate";
 import {
   useGetProductsQuery,
   useDeleteProductMutation,
   useCreateProductMutation,
-} from '../../slices/productsApiSlice';
-import { toast } from 'react-toastify';
+} from "../../slices/productsApiSlice";
+import { toast } from "react-toastify";
 
 const ProductListScreen = () => {
   const { pageNumber } = useParams();
@@ -23,7 +23,7 @@ const ProductListScreen = () => {
     useDeleteProductMutation();
 
   const deleteHandler = async (id) => {
-    if (window.confirm('Are you sure')) {
+    if (window.confirm("Are you sure")) {
       try {
         await deleteProduct(id);
         refetch();
@@ -37,7 +37,7 @@ const ProductListScreen = () => {
     useCreateProductMutation();
 
   const createProductHandler = async () => {
-    if (window.confirm('Are you sure you want to create a new product?')) {
+    if (window.confirm("Are you sure you want to create a new product?")) {
       try {
         await createProduct();
         refetch();
@@ -49,17 +49,44 @@ const ProductListScreen = () => {
 
   return (
     <>
-      <Row className='align-items-center'>
-        <Col>
-          <h1>Products</h1>
-        </Col>
-        <Col className='text-end'>
-          <Button className='my-3' onClick={createProductHandler}>
-            <FaPlus /> Create Product
-          </Button>
-        </Col>
-      </Row>
+      <Container>
+        <Row className="align-items-center">
+          <Col>
+            <h1
+              style={{
+                textAlign: "start",
+                fontSize: "45px",
+                fontWeight: "700",
+                color: "#000000",
+                margin: "60px 0px",
+              }}
+            >
+              Products
+            </h1>
+          </Col>
+          <Col className="text-end">
+            <Button
+              className="my-3"
+              onClick={createProductHandler}
+              style={{
+                fontSize: "20px",
+                fontWeight: "300",
+                color: "#ffff",
+                textAlign: "center",
+                border: "1px Solid black",
+                background: "black",
+                borderRadius: "200px",
+                margin: "20px 0px",
+                padding: "10px 25px",
+                boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+              }}
+            >
+              <FaPlus /> Create Product
+            </Button>
+          </Col>
+        </Row>
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       {loadingCreate && <Loader />}
       {loadingDelete && <Loader />}
@@ -93,6 +120,8 @@ const ProductListScreen = () => {
                       <Button variant='light' className='btn-sm mx-2'>
                         <FaEdit />
 =======
+=======
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
         {loadingCreate && <Loader />}
         {loadingDelete && <Loader />}
         {isLoading ? (
@@ -110,6 +139,7 @@ const ProductListScreen = () => {
                   <th>CATEGORY</th>
                   <th>BRAND</th>
                   <th></th>
+<<<<<<< HEAD
                 </tr>
               </thead>
               <tbody>
@@ -147,13 +177,40 @@ const ProductListScreen = () => {
                       <FaTrash style={{ color: 'white' }} />
                     </Button>
                   </td>
+=======
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                 </tr>
-              ))}
-            </tbody>
-          </Table>
-          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
-        </>
-      )}
+              </thead>
+              <tbody>
+                {data.products.map((product) => (
+                  <tr key={product._id}>
+                    <td>{product._id}</td>
+                    <td>{product.name}</td>
+                    <td>${product.price}</td>
+                    <td>{product.category}</td>
+                    <td>{product.brand}</td>
+                    <td>
+                      <LinkContainer to={`/admin/product/${product._id}/edit`}>
+                        <Button variant="light" className="btn-sm mx-2">
+                          <FaEdit />
+                        </Button>
+                      </LinkContainer>
+                      <Button
+                        variant="danger"
+                        className="btn-sm"
+                        onClick={() => deleteHandler(product._id)}
+                      >
+                        <FaTrash style={{ color: "white" }} />
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+            <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+          </>
+        )}
+      </Container>
     </>
   );
 };

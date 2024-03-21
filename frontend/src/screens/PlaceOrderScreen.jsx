@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,6 +11,8 @@ import Loader from '../components/Loader';
 import { useCreateOrderMutation } from '../slices/ordersApiSlice';
 import { clearCartItems } from '../slices/cartSlice';
 =======
+=======
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -19,14 +22,19 @@ import {
   Col,
   ListGroup,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   Image,
 >>>>>>> origin/main
+=======
+  Image,
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
   Card,
   Container,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 import CheckoutSteps from "../components/CheckoutSteps";
@@ -35,6 +43,12 @@ import Loader from "../components/Loader";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice";
 import { clearCartItems } from "../slices/cartSlice";
 >>>>>>> Stashed changes
+=======
+import CheckoutSteps from "../components/CheckoutSteps";
+import Loader from "../components/Loader";
+import { useCreateOrderMutation } from "../slices/ordersApiSlice";
+import { clearCartItems } from "../slices/cartSlice";
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
@@ -45,9 +59,9 @@ const PlaceOrderScreen = () => {
 
   useEffect(() => {
     if (!cart.shippingAddress.address) {
-      navigate('/shipping');
+      navigate("/shipping");
     } else if (!cart.paymentMethod) {
-      navigate('/payment');
+      navigate("/shipping");
     }
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
 
@@ -74,6 +88,7 @@ const PlaceOrderScreen = () => {
     <>
 <<<<<<< Updated upstream
       <CheckoutSteps step1 step2 step3 step4 />
+<<<<<<< HEAD
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
@@ -92,6 +107,8 @@ const PlaceOrderScreen = () => {
 =======
       <CheckoutSteps step1 step2 step3 step4 />
 >>>>>>> origin/main
+=======
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
       <Container>
         <Row>
           <Col className="my-3" lg={7} md={12} sm={12} xs={12}>
@@ -125,14 +142,39 @@ const PlaceOrderScreen = () => {
                     {cart.shippingAddress.country}
                   </p>
                 </ListGroup.Item>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
 
-            <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <strong>Method: </strong>
-              {cart.paymentMethod}
-            </ListGroup.Item>
+                <ListGroup.Item>
+                  <h2
+                    style={{
+                      textAlign: "start",
+                      fontSize: "30px",
+                      fontWeight: "700",
+                      color: "#000000",
+                      margin: "20px 0px",
+                    }}
+                  >
+                    Payment Method
+                  </h2>
+                  <p>
+                    <strong
+                      style={{
+                        textAlign: "start",
+                        fontSize: "20px",
+                        fontWeight: "500",
+                        color: "#000000",
+                      }}
+                    >
+                      Method:{" "}
+                    </strong>
+                    {cart.paymentMethod}
+                  </p>
+                </ListGroup.Item>
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             <ListGroup.Item>
               <h2>Order Items</h2>
@@ -219,6 +261,8 @@ const PlaceOrderScreen = () => {
         </Col>
       </Row>
 =======
+=======
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                 <ListGroup.Item>
                   <h2
                     style={{
@@ -241,9 +285,13 @@ const PlaceOrderScreen = () => {
                           color: "#000000",
                           margin: "60px 0px",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                           textAlign: "center",
 >>>>>>> origin/main
+=======
+                          textAlign: "center",
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                         }}
                       >
                         Your cart is empty
@@ -336,12 +384,17 @@ const PlaceOrderScreen = () => {
                                   }}
                                 >
 <<<<<<< HEAD
+<<<<<<< HEAD
                                   {item.qty} x Rs. {item.price} = 
                                   Rs. {(item.qty * (item.price * 100)) / 100}
 =======
                                   {item.qty} x ${item.price} = $
                                   {(item.qty * (item.price * 100)) / 100}
 >>>>>>> origin/main
+=======
+                                  {item.qty} x ${item.price} = $
+                                  {(item.qty * (item.price * 100)) / 100}
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                                 </h3>
                               </div>
                             </Col>
@@ -396,10 +449,14 @@ const PlaceOrderScreen = () => {
                       }}
                     >
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cart.itemsPrice}
 =======
                       ${cart.itemsPrice}
 >>>>>>> origin/main
+=======
+                      ${cart.itemsPrice}
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                     </h3>
                   </div>
 
@@ -428,10 +485,14 @@ const PlaceOrderScreen = () => {
                       }}
                     >
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cart.shippingPrice}
 =======
                       ${cart.shippingPrice}
 >>>>>>> origin/main
+=======
+                      ${cart.shippingPrice}
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                     </h3>
                   </div>
 
@@ -460,10 +521,14 @@ const PlaceOrderScreen = () => {
                       }}
                     >
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cart.taxPrice}
 =======
                       ${cart.taxPrice}
 >>>>>>> origin/main
+=======
+                      ${cart.taxPrice}
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                     </h3>
                   </div>
                 </ListGroup.Item>
@@ -493,10 +558,14 @@ const PlaceOrderScreen = () => {
                       }}
                     >
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cart.totalPrice}
 =======
                       ${cart.totalPrice}
 >>>>>>> origin/main
+=======
+                      ${cart.totalPrice}
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                     </h3>
 
                     {error && (
@@ -531,7 +600,10 @@ const PlaceOrderScreen = () => {
           </Col>
         </Row>
       </Container>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
     </>
   );
 };

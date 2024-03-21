@@ -39,10 +39,14 @@ const AllProductsScreen = () => {
             <Row>
               {data.products.map((product) => (
 <<<<<<< HEAD
+<<<<<<< HEAD
                 // console.log(product),
 =======
                 console.log(product),
 >>>>>>> origin/main
+=======
+                console.log(product),
+>>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
                 <Col
                   className="newArrivalResponsive"
                   key={product._id}

@@ -8,6 +8,7 @@ import { logout } from './slices/authSlice';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import TopNavBar from './components/TopNavBar';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -26,11 +27,12 @@ const App = () => {
   return (
     <>
       <ToastContainer />
+      <TopNavBar/>
       <Header />
       <main className='py-3'>
-        <Container>
+        {/* <Container> */}
           <Outlet />
-        </Container>
+        {/* </Container> */}
       </main>
       <Footer />
     </>
