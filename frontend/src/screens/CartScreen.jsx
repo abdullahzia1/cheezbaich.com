@@ -18,6 +18,7 @@ import { FaTrash } from "react-icons/fa";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
 import Tesseract from "tesseract.js";
 import { useState } from "react";
+<<<<<<< HEAD
 =======
   Card,
   Container,
@@ -30,11 +31,12 @@ import Tesseract from "tesseract.js";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
 
 const CartScreen = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
@@ -75,6 +77,7 @@ const CartScreen = () => {
       setPin("");
       setCheckoutEnabled(false);
     }
+<<<<<<< HEAD
 =======
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -99,6 +102,8 @@ const CartScreen = () => {
     navigate("/shipping");
     // navigate("/login?redirect=/shipping");
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
   };
 
   return (
@@ -128,9 +133,12 @@ const CartScreen = () => {
                       color: "#000000",
                       margin: "60px 0px",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                       textAlign: "center",
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
                     }}
                   >
                     Your cart is empty
@@ -233,10 +241,14 @@ const CartScreen = () => {
                               }}
                             >
 <<<<<<< HEAD
+<<<<<<< HEAD
                               Rs. {item.price}
 =======
                               ${item.price}
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                              Rs. {item.price}
+>>>>>>> origin/frontendChange
                             </h3>
                           </div>
 
@@ -331,11 +343,15 @@ const CartScreen = () => {
                       }}
                     >
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cartItems
 =======
                       $
                       {cartItems
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      Rs. {cartItems
+>>>>>>> origin/frontendChange
                         .reduce((acc, item) => acc + item.qty * item.price, 0)
                         .toFixed(2)}
                     </h3>
@@ -366,10 +382,14 @@ const CartScreen = () => {
                       }}
                     >
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. 0
 =======
                       $0
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      Rs. 0
+>>>>>>> origin/frontendChange
                     </h3>
                   </div>
                   <div
@@ -397,10 +417,14 @@ const CartScreen = () => {
                       }}
                     >
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. 0
 =======
                       $0
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      Rs. 0
+>>>>>>> origin/frontendChange
                     </h3>
                   </div>
                 </ListGroup.Item>
@@ -430,11 +454,15 @@ const CartScreen = () => {
                       }}
                     >
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cartItems
 =======
                       $
                       {cartItems
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      Rs. {cartItems
+>>>>>>> origin/frontendChange
                         .reduce((acc, item) => acc + item.qty * item.price, 0)
                         .toFixed(2)}
                     </h3>
@@ -447,10 +475,14 @@ const CartScreen = () => {
                   {image && (
                     <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                       <img src={URL.createObjectURL(image)} alt="Uploaded" style={{ width: '50%'}} />
 =======
                       <img src={URL.createObjectURL(image)} alt="Uploaded" />
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      <img src={URL.createObjectURL(image)} alt="Uploaded" style={{ width: '50%'}} />
+>>>>>>> origin/frontendChange
                       {pin ? (
                         <p>Extracted Pin: {pin}</p>
                       ) : (
@@ -459,9 +491,13 @@ const CartScreen = () => {
                     </div>
                   )}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+
+>>>>>>> origin/frontendChange
                   <Button
                     type="button"
                     className="btn-block"

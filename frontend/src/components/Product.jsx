@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Card } from "react-bootstrap";
 =======
 import { Card, Container } from "react-bootstrap";
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+import { Card } from "react-bootstrap";
+>>>>>>> origin/frontendChange
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
 
@@ -19,11 +23,15 @@ const Product = ({ product }) => {
               background: "#F0EEED",
               borderRadius: "20px",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/frontendChange
               width: "280px",
               height: "220px",
               objectFit: "contain",
               boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
             }}
+<<<<<<< HEAD
           />
         </Link>
         <Card.Body>
@@ -51,6 +59,8 @@ const Product = ({ product }) => {
               boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
             }}
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
           />
         </Link>
         <Card.Body>
@@ -68,7 +78,10 @@ const Product = ({ product }) => {
           </Link>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/frontendChange
           <Card.Text as="div" style={{ fontSize: "16px" }}>
             <Rating
               value={product.rating}
@@ -76,7 +89,10 @@ const Product = ({ product }) => {
             />
           </Card.Text>
 
+<<<<<<< HEAD
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
           <Card.Text
             as="h3"
             style={{
@@ -88,10 +104,14 @@ const Product = ({ product }) => {
             }}
           >
 <<<<<<< HEAD
+<<<<<<< HEAD
             Rs.{product.price}
 =======
             ${product.price}
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+            Rs.{product.price}
+>>>>>>> origin/frontendChange
           </Card.Text>
         </Card.Body>
       </div>

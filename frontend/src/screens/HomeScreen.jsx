@@ -47,7 +47,7 @@ const HomeScreen = () => {
             <Row>
               {data.products.slice(0, 4).map((product) => (
                 <Col
-                  className="newArrivalResponsive"
+                className="newArrivalResponsive"
                   key={product._id}
                   sm={12}
                   md={6}

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -11,6 +12,8 @@ import Loader from '../components/Loader';
 =======
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -19,12 +22,15 @@ import {
   ListGroup,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   Image,
 >>>>>>> origin/main
 =======
   Image,
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
   Card,
   Button,
   Container,
@@ -35,9 +41,12 @@ import { toast } from "react-toastify";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Stashed changes
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
 import {
   useDeliverOrderMutation,
   useGetOrderDetailsQuery,
@@ -132,6 +141,7 @@ const OrderScreen = () => {
   ) : (
     <>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       <h1>Order {order._id}</h1>
       <Row>
@@ -163,6 +173,8 @@ const OrderScreen = () => {
 =======
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
       <Container>
         <h1
           style={{
@@ -175,6 +187,7 @@ const OrderScreen = () => {
         >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           Order: "{order && order._id.slice(0, 6)}"
 =======
           Order: "{order._id}""
@@ -182,11 +195,15 @@ const OrderScreen = () => {
 =======
           Order: "{order._id}""
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+          Order: "{order && order._id.slice(0, 6)}"
+>>>>>>> origin/frontendChange
         </h1>
         <Row>
           <Col className="my-3" lg={7} md={12} sm={12} xs={12}>
             <Card className="container">
               <ListGroup variant="flush">
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <ListGroup.Item>
                   <h2
@@ -662,6 +679,8 @@ const OrderScreen = () => {
               {!order.isPaid && (
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
                 <ListGroup.Item>
                   <h2
                     style={{
@@ -780,7 +799,10 @@ const OrderScreen = () => {
                           fontWeight: "600",
                           color: "#000000",
                           margin: "60px 0px",
+<<<<<<< HEAD
                           textAlign: "center",
+=======
+>>>>>>> origin/frontendChange
                         }}
                       >
                         Your cart is empty
@@ -872,8 +894,12 @@ const OrderScreen = () => {
                                     color: "rgb(0 0 0 / 60%)",
                                   }}
                                 >
+<<<<<<< HEAD
                                   {item.qty} x ${item.price} = $
                                   {(item.qty * (item.price * 100)) / 100}
+=======
+                                  {item.qty} x Rs. {item.price} = Rs. {(item.qty * (item.price * 100)) / 100}
+>>>>>>> origin/frontendChange
                                 </h3>
                               </div>
                             </Col>
@@ -926,7 +952,11 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
+<<<<<<< HEAD
                       ${order.itemsPrice}
+=======
+                      Rs. {order.itemsPrice}
+>>>>>>> origin/frontendChange
                     </h3>
                   </div>
 
@@ -954,7 +984,11 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
+<<<<<<< HEAD
                       ${order.shippingPrice}
+=======
+                      Rs. {order.shippingPrice}
+>>>>>>> origin/frontendChange
                     </h3>
                   </div>
 
@@ -982,7 +1016,11 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
+<<<<<<< HEAD
                       ${order.taxPrice}
+=======
+                      Rs. {order.taxPrice}
+>>>>>>> origin/frontendChange
                     </h3>
                   </div>
                 </ListGroup.Item>
@@ -1011,7 +1049,11 @@ const OrderScreen = () => {
                         color: "#000000",
                       }}
                     >
+<<<<<<< HEAD
                       ${order.totalPrice}
+=======
+                      Rs. {order.totalPrice}
+>>>>>>> origin/frontendChange
                     </h3>
                   </div>
                 </ListGroup.Item>

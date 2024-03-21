@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ShopButton = () => {
@@ -7,7 +8,7 @@ const ShopButton = () => {
 
     <Link to='/product' style={{ color: '#000000' }}>
 
-      <button
+      <Button
         style={{
           fontSize: "20px",
           fontWeight: "300",
@@ -22,7 +23,7 @@ const ShopButton = () => {
         }}
         >
         Shop Now
-      </button>
+      </Button>
         </Link>
     </>
   );

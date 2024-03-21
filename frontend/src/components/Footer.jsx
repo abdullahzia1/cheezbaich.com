@@ -1,20 +1,45 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/frontendChange
 import React, { useRef } from "react";
 import logo from "../assets/logo.png";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+<<<<<<< HEAD
 =======
 import React from "react";
 import logo from "../assets/logo.png";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
 
 // Footer component definition
 const Footer = () => {
   // Get current year
   const currentYear = new Date().getFullYear();
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_c1wwssh", "template_ujsy74a", form.current, {
+        publicKey: "2BV6mEm3MQBmzT6n5",
+      })
+      .then(
+        () => {
+          console.log("Email Sent");
+        },
+        (error) => {
+          console.log("FAILED to sent email...", error.text);
+        }
+      );
+  };
 
   return (
     // Footer section
@@ -60,23 +85,32 @@ const Footer = () => {
             >
               <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/frontendChange
                 <form ref={form} onSubmit={sendEmail}>
                   <div className="mt-2">
                     {/* Email input field */}
                     <input
                       name="user_email"
+<<<<<<< HEAD
 =======
                 <form>
                   <div className="mt-2">
                     {/* Email input field */}
                     <input
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
                       type="email"
                       className="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="✉ Enter your email address"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/frontendChange
                       style={{
                         borderRadius: "20px",
                         width: "250px",
@@ -106,6 +140,7 @@ const Footer = () => {
                     Subscribe to Newsletter
                   </Button>
                 </form>
+<<<<<<< HEAD
 =======
                       style={{ borderRadius: "20px", width: "250px" }}
                     />
@@ -131,6 +166,8 @@ const Footer = () => {
                   Subscribe to Newsletter
                 </Button>
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
               </div>
             </Col>
           </Row>
@@ -168,6 +205,7 @@ const Footer = () => {
             </h5>
             <ul className="nav flex-column">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Link
                 to={`/About`}
                 style={{ textDecoration: "none", color: "#495057" }}
@@ -181,6 +219,12 @@ const Footer = () => {
               <li className="nav-item mb-2">Works</li>
               <li className="nav-item mb-2">About</li>
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+            <Link to={`/About`} style={{ textDecoration: 'none', color: "#495057"}}>
+              <li className="nav-item mb-2">About</li>
+              <li className="nav-item mb-2">Contact Us </li>
+              </Link>
+>>>>>>> origin/frontendChange
             </ul>
           </Col>
           {/* Help links */}
@@ -197,6 +241,7 @@ const Footer = () => {
             </h5>
             <ul className="nav flex-column">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Link
                 to={`/Help`}
                 style={{ textDecoration: "none", color: "#495057" }}
@@ -210,6 +255,12 @@ const Footer = () => {
               <li className="nav-item mb-2">Terms & Conditions</li>
               <li className="nav-item mb-2">Privacy Policy</li>
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+            <Link to={`/Help`} style={{ textDecoration: 'none', color: "#495057"}}>
+            <li className="nav-item mb-2">Manage Shipping</li>
+              <li className="nav-item mb-2">Customer Support</li>
+            </Link>
+>>>>>>> origin/frontendChange
             </ul>
           </Col>
           {/* FAQ links */}
@@ -226,6 +277,7 @@ const Footer = () => {
             </h5>
             <ul className="nav flex-column">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Link
                 to={`/FAQ`}
                 style={{ textDecoration: "none", color: "#495057" }}
@@ -239,6 +291,12 @@ const Footer = () => {
               <li className="nav-item mb-2">Orders</li>
               <li className="nav-item mb-2">Account</li>
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+            <Link to={`/FAQ`} style={{ textDecoration: 'none', color: "#495057"}}>
+            <li className="nav-item mb-2">Terms & Conditions</li>
+              <li className="nav-item mb-2">Return Policy</li>
+              </Link>
+>>>>>>> origin/frontendChange
             </ul>
           </Col>
         </Row>

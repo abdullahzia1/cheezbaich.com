@@ -25,12 +25,13 @@ import Meta from "../components/Meta";
 import { addToCart } from "../slices/cartSlice";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import Product from "../components/Product";
-import ShopButton from "../components/ShopButton";
+import HTMLReactParser from "html-react-parser";
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
 
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const navigate = useNavigate();
 
   const { pageNumber, keyword } = useParams();
@@ -46,6 +47,7 @@ const ProductScreen = () => {
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     navigate('/cart');
 =======
@@ -57,6 +59,8 @@ const ProductScreen = () => {
 =======
     // navigate("/cart");
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
   };
 
   const {
@@ -147,6 +151,7 @@ const ProductScreen = () => {
                   fluid
                   style={{
 <<<<<<< HEAD
+<<<<<<< HEAD
                     width: "100%",
                     height: "350px",
                     objectFit: "contain",
@@ -156,6 +161,11 @@ const ProductScreen = () => {
                     objectFit: "cover",
                     boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
 >>>>>>> origin/main
+=======
+                    width: "100%",
+                    height: "350px",
+                    objectFit: "contain",
+>>>>>>> origin/frontendChange
                   }}
                 />
               </Col>
@@ -211,6 +221,7 @@ const ProductScreen = () => {
                       }}
                     >
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs.{product.price}
                     </p>
 <<<<<<< HEAD
@@ -221,6 +232,11 @@ const ProductScreen = () => {
                       ${product.price}
                     </p>
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      Rs.{product.price}
+                    </p>
+
+>>>>>>> origin/frontendChange
                     <p
                       style={{
                         fontSize: "20px",
@@ -230,11 +246,15 @@ const ProductScreen = () => {
                     >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/frontendChange
                       {product.miniDescription &&
                         product.miniDescription
                           .split(" ")
                           .slice(0, 23)
                           .join(" ")}
+<<<<<<< HEAD
 =======
                       {product.miniDescription}
 >>>>>>> origin/main
@@ -244,6 +264,9 @@ const ProductScreen = () => {
                       {product.miniDescription}
                     </p>
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                    </p>
+>>>>>>> origin/frontendChange
                   </ListGroup.Item>
                   <ListGroup.Item
                     style={{ display: "flex", justifyContent: "flex-start" }}
@@ -377,7 +400,7 @@ const ProductScreen = () => {
                       color: "rgb(0 0 0 / 62%)",
                     }}
                   >
-                    {product.description}
+                    {HTMLReactParser(product.description)}
                   </p>
                 </div>
               </Tab>
@@ -413,13 +436,13 @@ const ProductScreen = () => {
                       <Message>No Reviews</Message>
                     )}
                     {product.reviews.map((review) => (
-                      <Col className="d-flex gap-2 my-2" lg={6} md={6} sm={12}>
+                      <Col className="d-flex gap-2 my-2" lg={3} md={6} sm={12}>
                         <ListGroup.Item
                           key={review.id}
                           className="card"
                           style={{
-                            width: "500px",
-                            padding: "15px 5px",
+                            width: "100%",
+                            padding: "10px 5px",
                             boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
                             borderRadius: "30px",
                             marginBottom: "10px",
@@ -429,7 +452,7 @@ const ProductScreen = () => {
                           <div className="card-body">
                             <h5
                               className="card-title"
-                              style={{ fontSize: "20px", fontWeight: "600" }}
+                              style={{ fontSize: "18px", fontWeight: "600" }}
                             >
                               {review.name}
                             </h5>
@@ -446,7 +469,7 @@ const ProductScreen = () => {
                             <p
                               className="card-text"
                               style={{
-                                fontSize: "13px",
+                                fontSize: "12px",
                                 fontWeight: "300",
                                 color: "#0000009c",
                               }}
@@ -668,7 +691,7 @@ const ProductScreen = () => {
               {data.products.slice(0, 4).map((product) => (
                 <Col
                   className="newArrivalResponsive"
-                  key={product.id}
+                  // key={product._id}
                   sm={12}
                   md={6}
                   lg={4}
@@ -685,22 +708,24 @@ const ProductScreen = () => {
                 margin: "60px 0px",
               }}
             >
-              <button
-                style={{
-                  fontSize: "20px",
-                  fontWeight: "300",
-                  color: "#ffff",
-                  textAlign: "center",
-                  border: "1px Solid black",
-                  background: "black",
-                  borderRadius: "200px",
-                  margin: "20px 0px",
-                  padding: "10px 25px",
-                  boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                }}
-              >
-                View All
-              </button>
+              <Link to="/product" style={{ color: "#000000" }}>
+                <Button
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: "300",
+                    color: "#ffff",
+                    textAlign: "center",
+                    border: "1px Solid black",
+                    background: "black",
+                    borderRadius: "200px",
+                    margin: "20px 0px",
+                    padding: "10px 25px",
+                    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                  }}
+                >
+                  View All
+                </Button>
+              </Link>
             </div>
 
             <hr className="hr hr-blurry" />

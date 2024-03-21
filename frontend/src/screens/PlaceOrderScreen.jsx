@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,6 +14,8 @@ import { clearCartItems } from '../slices/cartSlice';
 =======
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -23,17 +26,21 @@ import {
   ListGroup,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   Image,
 >>>>>>> origin/main
 =======
   Image,
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
   Card,
   Container,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -49,6 +56,11 @@ import Loader from "../components/Loader";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice";
 import { clearCartItems } from "../slices/cartSlice";
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+import Loader from "../components/Loader";
+import { useCreateOrderMutation } from "../slices/ordersApiSlice";
+import { clearCartItems } from "../slices/cartSlice";
+>>>>>>> origin/frontendChange
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
@@ -86,6 +98,7 @@ const PlaceOrderScreen = () => {
 
   return (
     <>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       <CheckoutSteps step1 step2 step3 step4 />
 <<<<<<< HEAD
@@ -109,6 +122,9 @@ const PlaceOrderScreen = () => {
 >>>>>>> origin/main
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+      {/* <CheckoutSteps step1 step2 step3 step4 /> */}
+>>>>>>> origin/frontendChange
       <Container>
         <Row>
           <Col className="my-3" lg={7} md={12} sm={12} xs={12}>
@@ -143,9 +159,12 @@ const PlaceOrderScreen = () => {
                   </p>
                 </ListGroup.Item>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Stashed changes
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
 
                 <ListGroup.Item>
                   <h2
@@ -174,6 +193,7 @@ const PlaceOrderScreen = () => {
                   </p>
                 </ListGroup.Item>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
             <ListGroup.Item>
@@ -263,6 +283,8 @@ const PlaceOrderScreen = () => {
 =======
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
                 <ListGroup.Item>
                   <h2
                     style={{
@@ -286,12 +308,15 @@ const PlaceOrderScreen = () => {
                           margin: "60px 0px",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                           textAlign: "center",
 >>>>>>> origin/main
 =======
                           textAlign: "center",
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
                         }}
                       >
                         Your cart is empty
@@ -385,6 +410,7 @@ const PlaceOrderScreen = () => {
                                 >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                   {item.qty} x Rs. {item.price} = 
                                   Rs. {(item.qty * (item.price * 100)) / 100}
 =======
@@ -395,6 +421,10 @@ const PlaceOrderScreen = () => {
                                   {item.qty} x ${item.price} = $
                                   {(item.qty * (item.price * 100)) / 100}
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                                  {item.qty} x Rs. {item.price} = 
+                                  Rs. {(item.qty * (item.price * 100)) / 100}
+>>>>>>> origin/frontendChange
                                 </h3>
                               </div>
                             </Col>
@@ -450,6 +480,7 @@ const PlaceOrderScreen = () => {
                     >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cart.itemsPrice}
 =======
                       ${cart.itemsPrice}
@@ -457,6 +488,9 @@ const PlaceOrderScreen = () => {
 =======
                       ${cart.itemsPrice}
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      Rs. {cart.itemsPrice}
+>>>>>>> origin/frontendChange
                     </h3>
                   </div>
 
@@ -486,6 +520,7 @@ const PlaceOrderScreen = () => {
                     >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cart.shippingPrice}
 =======
                       ${cart.shippingPrice}
@@ -493,6 +528,9 @@ const PlaceOrderScreen = () => {
 =======
                       ${cart.shippingPrice}
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      Rs. {cart.shippingPrice}
+>>>>>>> origin/frontendChange
                     </h3>
                   </div>
 
@@ -522,6 +560,7 @@ const PlaceOrderScreen = () => {
                     >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cart.taxPrice}
 =======
                       ${cart.taxPrice}
@@ -529,6 +568,9 @@ const PlaceOrderScreen = () => {
 =======
                       ${cart.taxPrice}
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      Rs. {cart.taxPrice}
+>>>>>>> origin/frontendChange
                     </h3>
                   </div>
                 </ListGroup.Item>
@@ -559,6 +601,7 @@ const PlaceOrderScreen = () => {
                     >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                       Rs. {cart.totalPrice}
 =======
                       ${cart.totalPrice}
@@ -566,6 +609,9 @@ const PlaceOrderScreen = () => {
 =======
                       ${cart.totalPrice}
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+                      Rs. {cart.totalPrice}
+>>>>>>> origin/frontendChange
                     </h3>
 
                     {error && (
@@ -601,9 +647,12 @@ const PlaceOrderScreen = () => {
         </Row>
       </Container>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Stashed changes
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
     </>
   );
 };

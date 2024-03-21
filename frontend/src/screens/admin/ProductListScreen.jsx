@@ -87,6 +87,7 @@ const ProductListScreen = () => {
         </Row>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       {loadingCreate && <Loader />}
       {loadingDelete && <Loader />}
@@ -122,6 +123,8 @@ const ProductListScreen = () => {
 =======
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
         {loadingCreate && <Loader />}
         {loadingDelete && <Loader />}
         {isLoading ? (
@@ -139,6 +142,7 @@ const ProductListScreen = () => {
                   <th>CATEGORY</th>
                   <th>BRAND</th>
                   <th></th>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 </tr>
               </thead>
@@ -179,6 +183,8 @@ const ProductListScreen = () => {
                   </td>
 =======
 >>>>>>> c7d68b6767f38a3b030be91d66da0dae0c3fa7b3
+=======
+>>>>>>> origin/frontendChange
                 </tr>
               </thead>
               <tbody>
@@ -186,7 +192,11 @@ const ProductListScreen = () => {
                   <tr key={product._id}>
                     <td>{product._id}</td>
                     <td>{product.name}</td>
+<<<<<<< HEAD
                     <td>${product.price}</td>
+=======
+                    <td>Rs.{product.price}</td>
+>>>>>>> origin/frontendChange
                     <td>{product.category}</td>
                     <td>{product.brand}</td>
                     <td>
