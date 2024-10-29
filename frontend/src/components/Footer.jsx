@@ -146,9 +146,12 @@ const Footer = () => {
               Company
             </h5>
             <ul className="nav flex-column">
-            <Link to={`/About`} style={{ textDecoration: 'none', color: "#495057"}}>
-              <li className="nav-item mb-2">About</li>
-              <li className="nav-item mb-2">Contact Us </li>
+              <Link
+                to={`/About`}
+                style={{ textDecoration: "none", color: "#495057" }}
+              >
+                <li className="nav-item mb-2">About</li>
+                <li className="nav-item mb-2">Contact Us </li>
               </Link>
             </ul>
           </Col>
@@ -165,10 +168,13 @@ const Footer = () => {
               Help
             </h5>
             <ul className="nav flex-column">
-            <Link to={`/Help`} style={{ textDecoration: 'none', color: "#495057"}}>
-            <li className="nav-item mb-2">Manage Shipping</li>
-              <li className="nav-item mb-2">Customer Support</li>
-            </Link>
+              <Link
+                to={`/Help`}
+                style={{ textDecoration: "none", color: "#495057" }}
+              >
+                <li className="nav-item mb-2">Manage Shipping</li>
+                <li className="nav-item mb-2">Customer Support</li>
+              </Link>
             </ul>
           </Col>
           {/* FAQ links */}
@@ -184,9 +190,12 @@ const Footer = () => {
               FAQ
             </h5>
             <ul className="nav flex-column">
-            <Link to={`/FAQ`} style={{ textDecoration: 'none', color: "#495057"}}>
-            <li className="nav-item mb-2">Terms & Conditions</li>
-              <li className="nav-item mb-2">Return Policy</li>
+              <Link
+                to={`/FAQ`}
+                style={{ textDecoration: "none", color: "#495057" }}
+              >
+                <li className="nav-item mb-2">Terms & Conditions</li>
+                <li className="nav-item mb-2">Return Policy</li>
               </Link>
             </ul>
           </Col>
