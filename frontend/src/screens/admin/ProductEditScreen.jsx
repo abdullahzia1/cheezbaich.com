@@ -85,13 +85,17 @@ const ProductEditScreen = () => {
     const formData = new FormData();
     formData.append("image", e.target.files[0]);
     try {
-      const res = await uploadProductImage(formData).unwrap();
+      const res = await uploadProductImage({
+        data: formData,
+        productId,
+      }).unwrap();
       toast.success(res.message);
       setImage(res.image);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
   };
+
   const editor = useRef(null);
 
   return (
@@ -145,12 +149,16 @@ const ProductEditScreen = () => {
             </Form.Group>
             {/* Price */}
             <Form.Group controlId="price">
-              <Form.Label  style={{
+              <Form.Label
+                style={{
                   textAlign: "start",
                   fontSize: "20px",
                   fontWeight: "600",
                   color: "#000000",
-                }}>Price</Form.Label>
+                }}
+              >
+                Price
+              </Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter price"
@@ -160,12 +168,16 @@ const ProductEditScreen = () => {
             </Form.Group>
             {/* Image */}
             <Form.Group controlId="image">
-              <Form.Label  style={{
+              <Form.Label
+                style={{
                   textAlign: "start",
                   fontSize: "20px",
                   fontWeight: "600",
                   color: "#000000",
-                }}>Image</Form.Label>
+                }}
+              >
+                Image
+              </Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter image url"
@@ -181,12 +193,16 @@ const ProductEditScreen = () => {
             </Form.Group>
             {/* Brand */}
             <Form.Group controlId="brand">
-              <Form.Label  style={{
+              <Form.Label
+                style={{
                   textAlign: "start",
                   fontSize: "20px",
                   fontWeight: "600",
                   color: "#000000",
-                }}>Brand</Form.Label>
+                }}
+              >
+                Brand
+              </Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter brand"
@@ -196,12 +212,16 @@ const ProductEditScreen = () => {
             </Form.Group>
             {/* Count In Stock */}
             <Form.Group controlId="countInStock">
-              <Form.Label  style={{
+              <Form.Label
+                style={{
                   textAlign: "start",
                   fontSize: "20px",
                   fontWeight: "600",
                   color: "#000000",
-                }}>Count In Stock</Form.Label>
+                }}
+              >
+                Count In Stock
+              </Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter countInStock"
@@ -211,12 +231,16 @@ const ProductEditScreen = () => {
             </Form.Group>
             {/* Category */}
             <Form.Group controlId="category">
-              <Form.Label  style={{
+              <Form.Label
+                style={{
                   textAlign: "start",
                   fontSize: "20px",
                   fontWeight: "600",
                   color: "#000000",
-                }}>Category</Form.Label>
+                }}
+              >
+                Category
+              </Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter category"
@@ -226,12 +250,16 @@ const ProductEditScreen = () => {
             </Form.Group>
             {/* Mini Description */}
             <Form.Group controlId="miniDescription">
-              <Form.Label  style={{
+              <Form.Label
+                style={{
                   textAlign: "start",
                   fontSize: "20px",
                   fontWeight: "600",
                   color: "#000000",
-                }}>Mini Description</Form.Label>
+                }}
+              >
+                Mini Description
+              </Form.Label>
               <Form.Control
                 as="textarea"
                 placeholder="Enter Mini description here"
@@ -242,12 +270,16 @@ const ProductEditScreen = () => {
 
             {/* Description */}
             <Form.Group controlId="description">
-              <Form.Label  style={{
+              <Form.Label
+                style={{
                   textAlign: "start",
                   fontSize: "20px",
                   fontWeight: "600",
                   color: "#000000",
-                }}>Description</Form.Label>
+                }}
+              >
+                Description
+              </Form.Label>
 
               <JoditEditor
                 ref={editor}
@@ -261,7 +293,8 @@ const ProductEditScreen = () => {
 
             {/* Update button */}
             <Button
-              type="submit"s
+              type="submit"
+              s
               style={{
                 fontSize: "20px",
                 fontWeight: "300",
